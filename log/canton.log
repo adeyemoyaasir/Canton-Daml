@@ -1,0 +1,1349 @@
+2025-10-07 22:24:49,670 [main] INFO  c.d.canton.CantonCommunityApp$ - Starting Canton version 2.10.2
+2025-10-07 22:24:50,858 [main] INFO  c.d.canton.CantonCommunityApp$ - Starting up with resolved config:
+domains {
+    local {
+        admin-api {
+            port=6868
+        }
+        init {
+            domain-parameters {
+                protocol-version="7"
+            }
+        }
+        public-api {
+            port=6867
+        }
+        storage {
+            type=memory
+        }
+    }
+}
+parameters {
+    dev-version-support=true
+    non-standard-config=true
+    ports-file="/tmp/extra-dir-31937866668609/canton-portfile.json"
+}
+participants {
+    sandbox {
+        admin-api {
+            port=6866
+        }
+        ledger-api {
+            port=6865
+            user-management-service {
+                enabled=true
+            }
+        }
+        parameters {
+            dev-version-support=true
+        }
+        storage {
+            type=memory
+        }
+    }
+}
+
+2025-10-07 22:24:50,932 [main] INFO  c.d.c.e.CommunityEnvironment - Deriving 2 as number of threads from 'sys.runtime.availableProcessors()'. Please use '-Dscala.concurrent.context.numThreads' to override.
+2025-10-07 22:24:50,940 [main] INFO  c.d.c.e.CommunityEnvironment - Creating ForkJoinPool with parallelism = 3 (instead of 2) to avoid starvation.
+2025-10-07 22:24:51,516 [canton-env-ec-27] INFO  o.a.pekko.event.slf4j.Slf4jLogger - Slf4jLogger started
+2025-10-07 22:24:51,629 [main] INFO  c.d.c.t.OpenTelemetryFactory$ - Initializing open telemetry with Exporter.Disabled
+2025-10-07 22:24:51,726 [main] INFO  c.d.c.e.CommunityEnvironment tid:576652970ebc33855566cc9e713a1f39 - Automatically starting all instances
+2025-10-07 22:24:52,176 [canton-env-ec-27] INFO  c.d.c.crypto.Crypto:domain=local - 'crypto' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:24:52,554 [canton-env-ec-33] INFO  c.d.c.d.DomainNodeBootstrap:domain=local - Starting admin-api services on CommunityAdminServerConfig(127.0.0.1,Some(6868),None,Some(BasicKeepAliveServerConfig(40s,20s,20s,false)),10485760,List(),None)
+2025-10-07 22:24:52,798 [canton-env-ec-28] INFO  c.d.c.c.Crypto:participant=sandbox - 'crypto' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:24:52,806 [canton-env-ec-32] INFO  c.d.c.p.ParticipantNodeBootstrap:participant=sandbox - Starting admin-api services on CommunityAdminServerConfig(127.0.0.1,Some(6866),None,Some(BasicKeepAliveServerConfig(40s,20s,20s,false)),10485760,List(),None)
+2025-10-07 22:24:53,497 [canton-env-ec-33] INFO  c.d.c.d.DomainNodeBootstrap:domain=local - 'domain' is now in state ServingStatus(status = 'SERVING'). Previous state was ServingStatus(status = 'NOT_SERVING').
+2025-10-07 22:24:53,501 [canton-env-ec-32] INFO  c.d.c.p.ParticipantNodeBootstrap:participant=sandbox - 'participant' is now in state ServingStatus(status = 'SERVING'). Previous state was ServingStatus(status = 'NOT_SERVING').
+2025-10-07 22:24:54,328 [canton-env-ec-33] INFO  c.d.c.d.DomainNodeBootstrap:domain=local - Node is not initialized yet. Performing automated default initialization.
+2025-10-07 22:24:54,330 [canton-env-ec-32] INFO  c.d.c.p.ParticipantNodeBootstrap:participant=sandbox - Node is not initialized yet. Performing automated default initialization.
+2025-10-07 22:24:54,914 [canton-env-ec-28] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:9e1a66ec9c122931def7cfed64ab6202 - Applied topology transaction Add NamespaceDelegation(12201de3c7d4..., SigningPublicKey(id = 12201de3c7d4..., format = Tink, scheme = Ed25519), true) at 2025-10-07T22:24:54.909649Z
+2025-10-07 22:24:54,914 [canton-env-ec-33] INFO  c.d.c.p.t.ParticipantTopologyManager:participant=sandbox tid:5dac968fff23b5f957a5d6faeeaa278b - Applied topology transaction Add NamespaceDelegation(12201cbcf245..., SigningPublicKey(id = 12201cbcf245..., format = Tink, scheme = Ed25519), true) at 2025-10-07T22:24:54.910461Z
+2025-10-07 22:24:55,071 [canton-env-ec-32] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:9e1a66ec9c122931def7cfed64ab6202 - Applied topology transaction Replace DomainParametersChange(
+  local::12201de3c7d4...,
+  DynamicDomainParameters(
+    participant response timeout = 30s,
+    mediator reaction timeout = 30s,
+    transfer exclusivity timeout = 1m,
+    topology change delay = 0.25s,
+    ledger time record time tolerance = 1m,
+    mediator deduplication timeout = 2m,
+    reconciliation interval = 1m,
+    max rate per participant = 1000000,
+    max request size = 10485760,
+    catchup config = CatchUpConfig(catchUpIntervalSkip = 5, nrIntervalsToTriggerCatchUp = 2)
+  )
+) at 2025-10-07T22:24:55.062744Z
+2025-10-07 22:24:55,101 [canton-env-ec-32] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:9e1a66ec9c122931def7cfed64ab6202 - Applied topology transaction Add OwnerToKeyMapping(DOM::local::12201de3c7d4..., SigningPublicKey(id = 1220d5b57cde..., format = Tink, scheme = Ed25519)) at 2025-10-07T22:24:55.100436Z
+2025-10-07 22:24:55,125 [canton-env-ec-33] INFO  c.d.c.d.t.DomainTopologyManager:domain=local - Applied topology transaction Add OwnerToKeyMapping(MED::local::12201de3c7d4..., SigningPublicKey(id = 1220a6e028e9..., format = Tink, scheme = Ed25519)) at 2025-10-07T22:24:55.124197Z
+2025-10-07 22:24:55,145 [canton-env-ec-32] INFO  c.d.c.d.t.DomainTopologyManager:domain=local - Applied topology transaction Add MediatorDomainState(Both, local::12201de3c7d4..., MED::local::12201de3c7d4...) at 2025-10-07T22:24:55.144212Z
+2025-10-07 22:24:55,188 [canton-env-ec-32] INFO  c.d.c.p.a.PackageUploader:participant=sandbox - Initializing Upgradable Package Resolution View
+2025-10-07 22:24:55,193 [canton-env-ec-33] INFO  c.d.c.p.a.PackageUploader:participant=sandbox - Upgradable Package Resolution View has been initialized (4 ms)
+2025-10-07 22:24:55,201 [canton-env-ec-33] INFO  c.d.c.d.t.DomainTopologyManager:domain=local - Applied topology transaction Add OwnerToKeyMapping(SEQ::local::12201de3c7d4..., SigningPublicKey(id = 12200815815d..., format = Tink, scheme = Ed25519)) at 2025-10-07T22:24:55.200420Z
+2025-10-07 22:24:55,205 [canton-env-ec-32] INFO  c.d.c.d.DomainNodeBootstrap:domain=local - Initializing node with id NodeId(local::12201de3c7d4...)
+2025-10-07 22:24:55,333 [canton-env-ec-27] INFO  c.d.c.p.s.CantonSyncService:participant=sandbox tid:6fc5823245443d9e94739e665b12c9f2 - Recovering published timely rejections
+2025-10-07 22:24:55,351 [canton-env-ec-32] INFO  c.d.c.p.s.CantonSyncService:participant=sandbox tid:6fc5823245443d9e94739e665b12c9f2 - Publishing the unpublished events from the ParticipantEventLog
+2025-10-07 22:24:55,557 [canton-env-ec-27] INFO  c.d.c.p.l.a.StartableStoppableLedgerApiServer:participant=sandbox - Creating storage, num-indexer: 16, num-ledger-api: 1
+2025-10-07 22:24:55,622 [canton-env-ec-32] INFO  c.d.c.d.s.SequencerRuntime:domain=local - Sequencer is healthy
+2025-10-07 22:24:55,688 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthQuasiComponent:domain=local - 'sequencer' is now in state SequencerHealthStatus(active = true). Previous state was SequencerHealthStatus(active = false).
+2025-10-07 22:24:55,692 [canton-env-ec-32] INFO  c.d.c.d.DomainNodeBootstrap:domain=local - 'sequencer-health-check-service' is now in state ServingStatus(status = 'SERVING'). Previous state was ServingStatus(status = 'NOT_SERVING').
+2025-10-07 22:24:55,982 [canton-env-ec-33] INFO  c.d.c.p.s.b.VerifiedDataSource$:participant=sandbox - Attempting to connect to the database (attempt 1/600)
+2025-10-07 22:24:56,348 [canton-env-ec-27] INFO  c.d.c.p.s.FlywayMigrations:participant=sandbox - Ensuring Flyway migration has either not started or there are no pending migrations...
+2025-10-07 22:24:56,356 [canton-env-ec-27] INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.15.2 by Redgate
+2025-10-07 22:24:56,356 [canton-env-ec-27] INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+2025-10-07 22:24:56,358 [canton-env-ec-27] INFO  o.f.c.i.license.VersionPrinter - 
+2025-10-07 22:24:56,465 [canton-env-ec-27] INFO  o.f.c.i.d.base.BaseDatabaseType - Database: jdbc:h2:mem:ledger_api_sandbox12201cbcf245dd6ee0139000d0d0ff9e056b9e8e634dbb21ca1de699daa3bc9ca9fb_031478beaf38493e899fd7a9936d3db5 (H2 2.1)
+2025-10-07 22:24:56,495 [canton-env-ec-33] INFO  c.d.c.s.c.SequencerClientImpl:domain=local/client=topology-manager - No event found up to 0001-01-01T00:00:00Z. Resubscribing from the beginning.
+2025-10-07 22:24:56,496 [canton-env-ec-33] INFO  c.d.c.s.c.SequencerClientImpl:domain=local/client=topology-manager - Processing events from the SequencedEventStore from 0001-01-01T00:00:00.000001Z on
+2025-10-07 22:24:56,557 [canton-env-ec-28] INFO  c.d.c.s.c.SequencerClientImpl:domain=local/client=topology-manager - Starting subscription for alias=SEQ::local::12201de3c7d4... at timestamp None; next counter 0
+2025-10-07 22:24:56,578 [canton-env-ec-27] INFO  c.d.c.p.s.FlywayMigrations:participant=sandbox - Running Flyway migration on empty database with 1 migrations pending...
+2025-10-07 22:24:56,581 [canton-env-ec-28] INFO  c.d.c.h.DelegatingMutableHealthComponent:domain=local/client=topology-manager - 'sequencer-client' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:24:56,597 [canton-env-ec-27] INFO  o.f.c.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.004s)
+2025-10-07 22:24:56,601 [canton-env-ec-27] INFO  o.f.c.i.s.JdbcTableSchemaHistory - Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2025-10-07 22:24:56,667 [canton-env-ec-27] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "PUBLIC": << Empty Schema >>
+2025-10-07 22:24:56,706 [canton-env-ec-28] INFO  c.d.c.d.i.TopologyManagementInitialization$:domain=local - Sending initial topology transactions to domain members Set(DOM::local::12201de3c7d4..., MED::local::12201de3c7d4...) as DOM::local::12201de3c7d4...
+2025-10-07 22:24:56,779 [canton-env-ec-27] INFO  o.f.core.internal.command.DbMigrate - Migrating schema "PUBLIC" to version "1 - Append only schema"
+2025-10-07 22:24:56,791 [canton-env-ec-32] INFO  c.d.c.d.s.a.MemberAuthenticationServiceOld:domain=local - DOM::local::12201de3c7d4... authenticated new token with expiry 2025-10-07T23:24:56.785917Z
+2025-10-07 22:24:56,905 [canton-env-ec-28] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local - DOM::local::12201de3c7d4... subscribes from counter=0
+2025-10-07 22:24:56,966 [canton-env-ec-27] INFO  o.f.core.internal.command.DbMigrate - Successfully applied 1 migration to schema "PUBLIC", now at version v1 (execution time 00:00.306s)
+2025-10-07 22:24:56,967 [canton-env-ec-27] INFO  c.d.c.p.s.FlywayMigrations:participant=sandbox - Flyway schema migration finished successfully, applying 1 steps on empty database.
+2025-10-07 22:24:57,072 [canton-env-ec-27] INFO  c.d.c.p.i.RecoveringIndexer:participant=sandbox - Starting Indexer Server
+2025-10-07 22:24:57,120 [canton-env-ec-47] INFO  com.zaxxer.hikari.HikariDataSource - daml.index.db.connection.indexer - Starting...
+2025-10-07 22:24:57,142 [canton-env-ec-47] INFO  com.zaxxer.hikari.HikariDataSource - daml.index.db.connection.indexer - Start completed.
+2025-10-07 22:24:57,144 [canton-env-ec-33] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:6326de3557514ae559f9668fa8430972 - 'DOM::local::12201de3c7d4...' sends request with id '8d6a25a6-c2fb-4034-b9cc-9630960c3539' of size 1777 bytes with 2 envelopes.
+2025-10-07 22:24:57,198 [canton-env-ec-46] INFO  c.d.c.p.i.p.InitializeParallelIngestion:participant=sandbox - Attempting to initialize with participant ID sandbox::12201cbcf245dd6ee0139000d0d0ff9e056b9e8e634dbb21ca1de699daa3bc9ca9fb
+2025-10-07 22:24:57,204 [daml.index.db.threadpool.connection.indexer-1] INFO  c.d.c.p.s.b.c.ParameterStorageBackendImpl$:participant=sandbox - Initializing new database for participantId 'sandbox::12201cbcf245dd6ee0139000d0d0ff9e056b9e8e634dbb21ca1de699daa3bc9ca9fb'
+2025-10-07 22:24:57,257 [canton-env-ec-32] INFO  c.d.c.p.InMemoryState:participant=sandbox - Initializing participant in-memory state to ledger end: LedgerEnd(Offset(Bytes()),0,0)
+2025-10-07 22:24:57,294 [canton-env-ec-32] INFO  c.d.c.p.i.UpdatePackageMetadataView$:participant=sandbox - Package Metadata View has been initialized (12 ms)
+2025-10-07 22:24:57,295 [canton-env-ec-47] INFO  c.d.c.d.s.s.SequencerReader$EventsReader:domain=local/subscriber=DOM::local::12201de3c7d4 tid:6326de3557514ae559f9668fa8430972 - Using approximate topology snapshot at 0001-01-01T00:00:00.000001Z for desired timestamp 2025-10-07T22:24:57.245526Z
+2025-10-07 22:24:57,332 [canton-env-ec-32] INFO  c.d.c.p.i.UpdatePackageMetadataView$:participant=sandbox - Checking loaded packages for upgrade compatibility finished after (37 ms)
+2025-10-07 22:24:57,334 [canton-env-ec-33] INFO  c.d.c.p.DispatcherState:participant=sandbox - Started a Ledger API offset dispatcher at initialization offset: Offset(Bytes()).
+2025-10-07 22:24:57,381 [canton-env-ec-46] INFO  c.d.c.s.c.SequencedEventValidatorImpl:domain=local/client=topology-manager tid:6326de3557514ae559f9668fa8430972 - Skipping signature verification of the first sequenced event due to a fresh subscription from SEQ::local::12201de3c7d4...
+2025-10-07 22:24:57,465 [canton-env-ec-32] INFO  c.d.c.p.i.p.ParallelIndexerFactory$:participant=sandbox - Indexer initialized, indexing started.
+2025-10-07 22:24:57,467 [canton-env-ec-27] INFO  c.d.c.p.i.RecoveringIndexer:participant=sandbox - Started Indexer Server
+2025-10-07 22:24:57,472 [canton-env-ec-27] INFO  com.zaxxer.hikari.HikariDataSource - daml.index.db.connection.api-server - Starting...
+2025-10-07 22:24:57,478 [canton-env-ec-27] INFO  com.zaxxer.hikari.HikariDataSource - daml.index.db.connection.api-server - Start completed.
+2025-10-07 22:24:57,535 [input-mapping-pool-0] INFO  c.d.c.p.i.p.ParallelIndexerSubscription:participant=sandbox tid:6fc5823245443d9e94739e665b12c9f2 - Storing at offset=000000000000000001 ConfigurationChanged(
+  recordTime = 2025-10-07T22:24:55.381441Z,
+  configuration = Configuration(generation = 1, maxDeduplicationDuration = 168h, timeModel = LedgerTimeModel(avgTransactionLatency = 0s, minSkew = 8760h, maxSkew = 8760h)),
+  ...
+)
+2025-10-07 22:24:57,630 [canton-env-ec-28] INFO  c.d.c.t.p.DomainTopologyTransactionMessageValidator$Impl:domain=local/client=topology-manager tid:6326de3557514ae559f9668fa8430972 - Using approximate topology snapshot at 0001-01-01T00:00:00.000001Z for desired timestamp 2025-10-07T22:24:57.245526Z
+2025-10-07 22:24:57,659 [canton-env-ec-47] INFO  c.d.c.p.i.IndexServiceOwner:participant=sandbox - Found existing participant with ID: sandbox::12201cbcf245dd6ee0139000d0d0ff9e056b9e8e634dbb21ca1de699daa3bc9ca9fb`
+2025-10-07 22:24:57,684 [canton-env-ec-32] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:6326de3557514ae559f9668fa8430972 - Updated topology change delay from=0s to 0.25s
+2025-10-07 22:24:57,697 [canton-env-ec-32] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:6326de3557514ae559f9668fa8430972 - Storing topology transaction 1/6 Add NamespaceDelegation(12201de3c7d4..., SigningPublicKey(id = 12201de3c7d4..., format = Tink, scheme = Ed25519), true) with ts=EffectiveTime(2025-10-07T22:24:57.245526Z) (epsilon=0 ms)
+2025-10-07 22:24:57,704 [canton-env-ec-32] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:6326de3557514ae559f9668fa8430972 - Storing topology transaction 2/6 Replace DomainParametersChange(
+  local::12201de3c7d4...,
+  DynamicDomainParameters(
+    participant response timeout = 30s,
+    mediator reaction timeout = 30s,
+    transfer exclusivity timeout = 1m,
+    topology change delay = 0.25s,
+    ledger time record time tolerance = 1m,
+    mediator deduplication timeout = 2m,
+    reconciliation interval = 1m,
+    max rate per participant = 1000000,
+    max request size = 10485760,
+    catchup config = CatchUpConfig(catchUpIntervalSkip = 5, nrIntervalsToTriggerCatchUp = 2)
+  )
+) with ts=EffectiveTime(2025-10-07T22:24:57.245526Z) (epsilon=0 ms)
+2025-10-07 22:24:57,711 [canton-env-ec-32] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:6326de3557514ae559f9668fa8430972 - Storing topology transaction 3/6 Add OwnerToKeyMapping(DOM::local::12201de3c7d4..., SigningPublicKey(id = 1220d5b57cde..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:24:57.245526Z) (epsilon=0 ms)
+2025-10-07 22:24:57,714 [canton-env-ec-32] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:6326de3557514ae559f9668fa8430972 - Storing topology transaction 4/6 Add OwnerToKeyMapping(MED::local::12201de3c7d4..., SigningPublicKey(id = 1220a6e028e9..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:24:57.245526Z) (epsilon=0 ms)
+2025-10-07 22:24:57,716 [canton-env-ec-32] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:6326de3557514ae559f9668fa8430972 - Storing topology transaction 5/6 Add MediatorDomainState(Both, local::12201de3c7d4..., MED::local::12201de3c7d4...) with ts=EffectiveTime(2025-10-07T22:24:57.245526Z) (epsilon=0 ms)
+2025-10-07 22:24:57,716 [canton-env-ec-32] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:6326de3557514ae559f9668fa8430972 - Storing topology transaction 6/6 Add OwnerToKeyMapping(SEQ::local::12201de3c7d4..., SigningPublicKey(id = 12200815815d..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:24:57.245526Z) (epsilon=0 ms)
+2025-10-07 22:24:57,820 [canton-env-ec-27] INFO  c.d.c.p.a.r.MemoryCheck$:participant=sandbox - Using 'tenured' memory pool G1 Old Gen.  Setting its collection pool threshold to 2082471936
+2025-10-07 22:24:57,852 [canton-env-ec-47] INFO  c.d.c.h.MutableHealthComponent:domain=local - 'domain-topology-sender' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:24:57,906 [canton-env-ec-27] INFO  c.d.c.p.a.ApiServices$Owner:participant=sandbox - Daml-LF Engine supports LF versions: 1.14, 1.15, 1.17, 1.dev
+2025-10-07 22:24:57,933 [canton-env-ec-28] INFO  c.d.c.p.a.c.LedgerConfigurationSubscriptionFromIndex:participant=sandbox - Initial ledger configuration lookup found configuration Configuration(1,LedgerTimeModel(PT0S,PT8760H,PT8760H),PT168H) at Absolute(000000000000000001). Looking for new ledger configurations from this offset.
+2025-10-07 22:24:58,043 [canton-env-ec-28] INFO  c.d.c.s.c.SequencerClientImpl:domain=local/client=mediator - No event found up to 0001-01-01T00:00:00Z. Resubscribing from the beginning.
+2025-10-07 22:24:58,043 [canton-env-ec-28] INFO  c.d.c.s.c.SequencerClientImpl:domain=local/client=mediator - Processing events from the SequencedEventStore from 0001-01-01T00:00:00.000001Z on
+2025-10-07 22:24:58,049 [canton-env-ec-28] INFO  c.d.c.s.c.SequencerClientImpl:domain=local/client=mediator - Starting subscription for alias=SEQ::local::12201de3c7d4... at timestamp None; next counter 0
+2025-10-07 22:24:58,050 [canton-env-ec-28] INFO  c.d.c.h.DelegatingMutableHealthComponent:domain=local/client=mediator - 'sequencer-client' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:24:58,096 [canton-env-ec-32] INFO  c.d.c.d.s.a.MemberAuthenticationServiceOld:domain=local - MED::local::12201de3c7d4... authenticated new token with expiry 2025-10-07T23:24:58.096308Z
+2025-10-07 22:24:58,113 [canton-env-ec-32] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local - MED::local::12201de3c7d4... subscribes from counter=0
+2025-10-07 22:24:58,160 [canton-env-ec-47] INFO  c.d.c.s.c.SequencedEventValidatorImpl:domain=local/client=mediator tid:6326de3557514ae559f9668fa8430972 - Skipping signature verification of the first sequenced event due to a fresh subscription from SEQ::local::12201de3c7d4...
+2025-10-07 22:24:58,181 [canton-env-ec-47] INFO  c.d.c.d.m.Mediator:domain=local/node=mediator tid:6326de3557514ae559f9668fa8430972 - Caught up with batch with counter=0 with sequencer with 936 ms delay
+2025-10-07 22:24:58,213 [canton-env-ec-47] INFO  c.d.c.t.p.DomainTopologyTransactionMessageValidator$Impl:domain=local/node=mediator/client=mediator tid:6326de3557514ae559f9668fa8430972 - Using approximate topology snapshot at 0001-01-01T00:00:00.000001Z for desired timestamp 2025-10-07T22:24:57.245526Z
+2025-10-07 22:24:58,255 [canton-env-ec-33] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:6326de3557514ae559f9668fa8430972 - Updated topology change delay from=0s to 0.25s
+2025-10-07 22:24:58,263 [canton-env-ec-33] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:6326de3557514ae559f9668fa8430972 - Storing topology transaction 1/6 Add NamespaceDelegation(12201de3c7d4..., SigningPublicKey(id = 12201de3c7d4..., format = Tink, scheme = Ed25519), true) with ts=EffectiveTime(2025-10-07T22:24:57.245526Z) (epsilon=0 ms)
+2025-10-07 22:24:58,266 [canton-env-ec-33] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:6326de3557514ae559f9668fa8430972 - Storing topology transaction 2/6 Replace DomainParametersChange(
+  local::12201de3c7d4...,
+  DynamicDomainParameters(
+    participant response timeout = 30s,
+    mediator reaction timeout = 30s,
+    transfer exclusivity timeout = 1m,
+    topology change delay = 0.25s,
+    ledger time record time tolerance = 1m,
+    mediator deduplication timeout = 2m,
+    reconciliation interval = 1m,
+    max rate per participant = 1000000,
+    max request size = 10485760,
+    catchup config = CatchUpConfig(catchUpIntervalSkip = 5, nrIntervalsToTriggerCatchUp = 2)
+  )
+) with ts=EffectiveTime(2025-10-07T22:24:57.245526Z) (epsilon=0 ms)
+2025-10-07 22:24:58,270 [canton-env-ec-33] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:6326de3557514ae559f9668fa8430972 - Storing topology transaction 3/6 Add OwnerToKeyMapping(DOM::local::12201de3c7d4..., SigningPublicKey(id = 1220d5b57cde..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:24:57.245526Z) (epsilon=0 ms)
+2025-10-07 22:24:58,270 [canton-env-ec-33] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:6326de3557514ae559f9668fa8430972 - Storing topology transaction 4/6 Add OwnerToKeyMapping(MED::local::12201de3c7d4..., SigningPublicKey(id = 1220a6e028e9..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:24:57.245526Z) (epsilon=0 ms)
+2025-10-07 22:24:58,272 [canton-env-ec-33] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:6326de3557514ae559f9668fa8430972 - Storing topology transaction 5/6 Add MediatorDomainState(Both, local::12201de3c7d4..., MED::local::12201de3c7d4...) with ts=EffectiveTime(2025-10-07T22:24:57.245526Z) (epsilon=0 ms)
+2025-10-07 22:24:58,275 [canton-env-ec-33] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:6326de3557514ae559f9668fa8430972 - Storing topology transaction 6/6 Add OwnerToKeyMapping(SEQ::local::12201de3c7d4..., SigningPublicKey(id = 12200815815d..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:24:57.245526Z) (epsilon=0 ms)
+2025-10-07 22:24:58,619 [canton-env-ec-28] INFO  c.d.c.p.a.LedgerApiService:participant=sandbox - Listening on 127.0.0.1:6865 over plain text with LedgerApiKeepAliveServerConfig(10m,20s,10s,true).
+2025-10-07 22:24:58,621 [canton-env-ec-33] INFO  c.d.c.p.a.ApiServiceOwner$:participant=sandbox - Initialized API server version {component version not found on classpath} with ledger-id = sandbox, port = 6865.
+2025-10-07 22:24:58,680 [canton-env-ec-33] INFO  c.d.c.p.a.s.ApiLedgerIdentityService:participant=sandbox tid:fcc6439f50202a147b651d5cd2e3bb40 - Received request for ledger identity: GetLedgerIdentityRequest().
+2025-10-07 22:25:00,788 [canton-env-ec-47] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:c101d69dc6f17ce62d9e90b33015f0dc - Received request for a package status: GetPackageStatusRequest(sandbox,cc348d369011362a5190fe96dd1f0dfbc697fdfd10e382b9e9666f0da05961b7), packageId -> 'cc348d369011362a5190fe96dd1f0dfbc697fdfd10e382b9e9666f0da05961b7'.
+2025-10-07 22:25:00,789 [canton-env-ec-75] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:33819e448b6656db626aef33835e1edf - Received request for a package status: GetPackageStatusRequest(sandbox,86828b9843465f419db1ef8a8ee741d1eef645df02375ebf509cdc8c3ddd16cb), packageId -> '86828b9843465f419db1ef8a8ee741d1eef645df02375ebf509cdc8c3ddd16cb'.
+2025-10-07 22:25:00,789 [canton-env-ec-28] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:71be92af229d6e93770a10b609b39832 - Received request for a package status: GetPackageStatusRequest(sandbox,18597917bc74b69da52b6868f118979353b62ebec4363329cd3d843b46e76702), packageId -> '18597917bc74b69da52b6868f118979353b62ebec4363329cd3d843b46e76702'.
+2025-10-07 22:25:00,796 [canton-env-ec-46] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:85e6b596409360b1bb0396e3f0238aed - Received request for a package status: GetPackageStatusRequest(sandbox,99a2705ed38c1c26cbb8fe7acf36bbf626668e167a33335de932599219e0a235), packageId -> '99a2705ed38c1c26cbb8fe7acf36bbf626668e167a33335de932599219e0a235'.
+2025-10-07 22:25:00,798 [canton-env-ec-75] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:15517f3adf6ae031482e3084ca82f1ea - Received request for a package status: GetPackageStatusRequest(sandbox,8a7806365bbd98d88b4c13832ebfa305f6abaeaf32cfa2b7dd25c4fa489b79fb), packageId -> '8a7806365bbd98d88b4c13832ebfa305f6abaeaf32cfa2b7dd25c4fa489b79fb'.
+2025-10-07 22:25:00,798 [canton-env-ec-46] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:e84c9009efb2dcaa16e15de8e97173b9 - Received request for a package status: GetPackageStatusRequest(sandbox,e22bce619ae24ca3b8e6519281cb5a33b64b3190cc763248b4c3f9ad5087a92c), packageId -> 'e22bce619ae24ca3b8e6519281cb5a33b64b3190cc763248b4c3f9ad5087a92c'.
+2025-10-07 22:25:00,802 [canton-env-ec-46] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:7051172333efb2383d1cf18a5898539b - Received request for a package status: GetPackageStatusRequest(sandbox,e8b3e0650dc0245a4a42133eb3b71b2ac7c3e03f25ee4df378b8089210a1bb6d), packageId -> 'e8b3e0650dc0245a4a42133eb3b71b2ac7c3e03f25ee4df378b8089210a1bb6d'.
+2025-10-07 22:25:00,806 [canton-env-ec-46] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:9dd0342c99304ee8b570e3fe223b1109 - Received request for a package status: GetPackageStatusRequest(sandbox,3f4deaf145a15cdcfa762c058005e2edb9baa75bb7f95a4f8f6f937378e86415), packageId -> '3f4deaf145a15cdcfa762c058005e2edb9baa75bb7f95a4f8f6f937378e86415'.
+2025-10-07 22:25:00,810 [canton-env-ec-46] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:d2a30fb4184787d19799cdc2b8d02519 - Received request for a package status: GetPackageStatusRequest(sandbox,bfcd37bd6b84768e86e432f5f6c33e25d9e7724a9d42e33875ff74f6348e733f), packageId -> 'bfcd37bd6b84768e86e432f5f6c33e25d9e7724a9d42e33875ff74f6348e733f'.
+2025-10-07 22:25:00,801 [canton-env-ec-32] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:556f9fb4fd13db11b447ad64c03dd07c - Received request for a package status: GetPackageStatusRequest(sandbox,5921708ce82f4255deb1b26d2c05358b548720938a5a325718dc69f381ba47ff), packageId -> '5921708ce82f4255deb1b26d2c05358b548720938a5a325718dc69f381ba47ff'.
+2025-10-07 22:25:00,812 [canton-env-ec-32] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:72453e7e8ca2d878d0f4d04059238ac6 - Received request for a package status: GetPackageStatusRequest(sandbox,e4cc67c3264eba4a19c080cac5ab32d87551578e0f5f58b6a9460f91c7abc254), packageId -> 'e4cc67c3264eba4a19c080cac5ab32d87551578e0f5f58b6a9460f91c7abc254'.
+2025-10-07 22:25:00,813 [canton-env-ec-32] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:14ccdd8f309c1159e58e7dccdd71cea4 - Received request for a package status: GetPackageStatusRequest(sandbox,57b5c520512c24035057aa4c783cb7ac7f3f49db29806280962e188be7aadb66), packageId -> '57b5c520512c24035057aa4c783cb7ac7f3f49db29806280962e188be7aadb66'.
+2025-10-07 22:25:00,819 [canton-env-ec-32] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:eac3ed650cca5a4b54f14875ffffec49 - Received request for a package status: GetPackageStatusRequest(sandbox,6839a6d3d430c569b2425e9391717b44ca324b88ba621d597778811b2d05031d), packageId -> '6839a6d3d430c569b2425e9391717b44ca324b88ba621d597778811b2d05031d'.
+2025-10-07 22:25:00,799 [canton-env-ec-76] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:67fcbc22f59b8b469b43788e541af753 - Received request for a package status: GetPackageStatusRequest(sandbox,6c2c0667393c5f92f1885163068cd31800d2264eb088eb6fc740e11241b2bf06), packageId -> '6c2c0667393c5f92f1885163068cd31800d2264eb088eb6fc740e11241b2bf06'.
+2025-10-07 22:25:00,831 [canton-env-ec-32] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:d9b4a36252c897e0c8143c0797b2ccbd - Received request for a package status: GetPackageStatusRequest(sandbox,cb0552debf219cc909f51cbb5c3b41e9981d39f8f645b1f35e2ef5be2e0b858a), packageId -> 'cb0552debf219cc909f51cbb5c3b41e9981d39f8f645b1f35e2ef5be2e0b858a'.
+2025-10-07 22:25:00,833 [canton-env-ec-75] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:334f081d86f60eb95c58d59f3477b8a5 - Received request for a package status: GetPackageStatusRequest(sandbox,c1f1f00558799eec139fb4f4c76f95fb52fa1837a5dd29600baa1c8ed1bdccfd), packageId -> 'c1f1f00558799eec139fb4f4c76f95fb52fa1837a5dd29600baa1c8ed1bdccfd'.
+2025-10-07 22:25:00,834 [canton-env-ec-75] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:4d5e7c69ccb2c052ebd7f82442ecc09a - Received request for a package status: GetPackageStatusRequest(sandbox,10e0333b52bba1ff147fc408a6b7d68465b157635ee230493bd6029b750dcb05), packageId -> '10e0333b52bba1ff147fc408a6b7d68465b157635ee230493bd6029b750dcb05'.
+2025-10-07 22:25:00,835 [canton-env-ec-76] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:697704f8a07211f933e934147efe44f2 - Received request for a package status: GetPackageStatusRequest(sandbox,76bf0fd12bd945762a01f8fc5bbcdfa4d0ff20f8762af490f8f41d6237c6524f), packageId -> '76bf0fd12bd945762a01f8fc5bbcdfa4d0ff20f8762af490f8f41d6237c6524f'.
+2025-10-07 22:25:00,831 [canton-env-ec-47] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:38016f220e5a590d5c16f3abf9adcab7 - Received request for a package status: GetPackageStatusRequest(sandbox,733e38d36a2759688a4b2c4cec69d48e7b55ecc8dedc8067b815926c917a182a), packageId -> '733e38d36a2759688a4b2c4cec69d48e7b55ecc8dedc8067b815926c917a182a'.
+2025-10-07 22:25:00,831 [canton-env-ec-79] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:80ef0b542f51ef5d5e0c809b95d1c193 - Received request for a package status: GetPackageStatusRequest(sandbox,1cc0ce9df7722b71fdfd172e9684c4855a7946a4a6933e784c7d9de8fac081c9), packageId -> '1cc0ce9df7722b71fdfd172e9684c4855a7946a4a6933e784c7d9de8fac081c9'.
+2025-10-07 22:25:00,804 [canton-env-ec-33] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:c15e01537d082d5176b6c4760d787287 - Received request for a package status: GetPackageStatusRequest(sandbox,d58cf9939847921b2aab78eaa7b427dc4c649d25e6bee3c749ace4c3f52f5c97), packageId -> 'd58cf9939847921b2aab78eaa7b427dc4c649d25e6bee3c749ace4c3f52f5c97'.
+2025-10-07 22:25:00,845 [canton-env-ec-46] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:4071e6a62a6209fb2406515f8a957a98 - Received request for a package status: GetPackageStatusRequest(sandbox,518032f41fd0175461b35ae0c9691e08b4aea55e62915f8360af2cc7a1f2ba6c), packageId -> '518032f41fd0175461b35ae0c9691e08b4aea55e62915f8360af2cc7a1f2ba6c'.
+2025-10-07 22:25:00,845 [canton-env-ec-33] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:ba6960c103862cb8bdea5da81d49b735 - Received request for a package status: GetPackageStatusRequest(sandbox,97b883cd8a2b7f49f90d5d39c981cf6e110cf1f1c64427a28a6d58ec88c43657), packageId -> '97b883cd8a2b7f49f90d5d39c981cf6e110cf1f1c64427a28a6d58ec88c43657'.
+2025-10-07 22:25:00,846 [canton-env-ec-78] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:c7bd3293187b1b01a5c5543b75f73e1a - Received request for a package status: GetPackageStatusRequest(sandbox,65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e), packageId -> '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e'.
+2025-10-07 22:25:00,845 [canton-env-ec-75] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:38d0bd10eaf51810918945f77162cab1 - Received request for a package status: GetPackageStatusRequest(sandbox,40f452260bef3f29dede136108fc08a88d5a5250310281067087da6f0baddff7), packageId -> '40f452260bef3f29dede136108fc08a88d5a5250310281067087da6f0baddff7'.
+2025-10-07 22:25:00,850 [canton-env-ec-77] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:0b9c70db756fb6b1dd7df283d0feb00b - Received request for a package status: GetPackageStatusRequest(sandbox,f20de1e4e37b92280264c08bf15eca0be0bc5babd7a7b5e574997f154c00cb78), packageId -> 'f20de1e4e37b92280264c08bf15eca0be0bc5babd7a7b5e574997f154c00cb78'.
+2025-10-07 22:25:00,855 [canton-env-ec-79] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:4dec7e9039ab297ef698cd61386f15dd - Received request for a package status: GetPackageStatusRequest(sandbox,e491352788e56ca4603acc411ffe1a49fefd76ed8b163af86cf5ee5f4c38645b), packageId -> 'e491352788e56ca4603acc411ffe1a49fefd76ed8b163af86cf5ee5f4c38645b'.
+2025-10-07 22:25:00,858 [canton-env-ec-32] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:970ce6cb2477c7717ea0283226def232 - Received request for a package status: GetPackageStatusRequest(sandbox,852d8e3a8ccf952acc73e17522846bc1eb41498e840d637e519ddcca7dbc7671), packageId -> '852d8e3a8ccf952acc73e17522846bc1eb41498e840d637e519ddcca7dbc7671'.
+2025-10-07 22:25:00,850 [canton-env-ec-78] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:4671c06c10db70d78e71e3821874f36c - Received request for a package status: GetPackageStatusRequest(sandbox,d14e08374fc7197d6a0de468c968ae8ba3aadbf9315476fd39071831f5923662), packageId -> 'd14e08374fc7197d6a0de468c968ae8ba3aadbf9315476fd39071831f5923662'.
+2025-10-07 22:25:00,847 [canton-env-ec-76] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:35ed562aafc4f03daffa2d74a9332a86 - Received request for a package status: GetPackageStatusRequest(sandbox,6851f194e144b693e63e9034b956c76cef6b5088dd8c66a657ab652a204dba2b), packageId -> '6851f194e144b693e63e9034b956c76cef6b5088dd8c66a657ab652a204dba2b'.
+2025-10-07 22:25:00,846 [canton-env-ec-33] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:978cfe2e348f69e56fb090d97852f462 - Received request for a package status: GetPackageStatusRequest(sandbox,38e6274601b21d7202bb995bc5ec147decda5a01b68d57dda422425038772af7), packageId -> '38e6274601b21d7202bb995bc5ec147decda5a01b68d57dda422425038772af7'.
+2025-10-07 22:25:00,863 [canton-env-ec-47] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:f0cc3455c76ed08dfacca5d9acbab895 - Received request for a package status: GetPackageStatusRequest(sandbox,057eed1fd48c238491b8ea06b9b5bf85a5d4c9275dd3f6183e0e6b01730cc2ba), packageId -> '057eed1fd48c238491b8ea06b9b5bf85a5d4c9275dd3f6183e0e6b01730cc2ba'.
+2025-10-07 22:25:03,861 [input-mapping-pool-1] INFO  c.d.c.p.i.p.ParallelIndexerSubscription:participant=sandbox tid:9499144a1cabf10f79d3bc1f5f53862c - Storing at offset=000000000000000002 PublicPackageUpload(
+  recordTime = 2025-10-07T22:25:03.845726Z,
+  archives = Seq(
+    1cc0ce9df772...,
+    65921e553a35...,
+    6851f194e144...,
+    57b5c520512c...,
+    cb0552debf21...,
+    3f4deaf145a1...,
+    86828b984346...,
+    f20de1e4e37b...,
+    76bf0fd12bd9...,
+    38e6274601b2...,
+    d58cf9939847...,
+    40f452260bef...,
+    e491352788e5...,
+    6839a6d3d430...,
+    518032f41fd0...,
+    e8b3e0650dc0...,
+    18597917bc74...,
+    852d8e3a8ccf...,
+    10e0333b52bb...,
+    bfcd37bd6b84...,
+    cc348d369011...,
+    057eed1fd48c...,
+    d14e08374fc7...,
+    c1f1f0055879...,
+    6c2c0667393c...,
+    e22bce619ae2...,
+    e4cc67c3264e...,
+    8a7806365bbd...,
+    97b883cd8a2b...,
+    5921708ce82f...,
+    733e38d36a27...,
+    99a2705ed38c...
+  ),
+  sourceDescription = 'AdminWorkflowsWithVacuuming'
+)
+2025-10-07 22:25:05,174 [canton-env-ec-79] INFO  c.d.c.p.t.ParticipantTopologyManager:participant=sandbox tid:9499144a1cabf10f79d3bc1f5f53862c - Applied topology transaction Add VettedPackages(
+  participant = sandbox::12201cbcf245...,
+  packages = Seq(
+    1cc0ce9df772...,
+    65921e553a35...,
+    6851f194e144...,
+    57b5c520512c...,
+    cb0552debf21...,
+    3f4deaf145a1...,
+    86828b984346...,
+    f20de1e4e37b...,
+    76bf0fd12bd9...,
+    38e6274601b2...,
+    d58cf9939847...,
+    40f452260bef...,
+    e491352788e5...,
+    6839a6d3d430...,
+    518032f41fd0...,
+    e8b3e0650dc0...,
+    18597917bc74...,
+    852d8e3a8ccf...,
+    10e0333b52bb...,
+    bfcd37bd6b84...,
+    cc348d369011...,
+    057eed1fd48c...,
+    d14e08374fc7...,
+    c1f1f0055879...,
+    6c2c0667393c...,
+    e22bce619ae2...,
+    e4cc67c3264e...,
+    8a7806365bbd...,
+    97b883cd8a2b...,
+    5921708ce82f...,
+    733e38d36a27...,
+    99a2705ed38c...
+  )
+) at 2025-10-07T22:25:05.171079Z
+2025-10-07 22:25:05,258 [canton-env-ec-75] INFO  c.d.c.p.a.s.ApiLedgerIdentityService:participant=sandbox tid:df950d929ee3a143c1d274e4cee06047 - Received request for ledger identity: GetLedgerIdentityRequest().
+2025-10-07 22:25:05,300 [canton-env-ec-32] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:86b6cfcfb272ae6140d2d2875f74be9d - Received request for a package status: GetPackageStatusRequest(sandbox,65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e), packageId -> '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e'.
+2025-10-07 22:25:05,314 [canton-env-ec-79] INFO  c.d.c.p.a.PingService:participant=sandbox - The operation 'wait-for-admin-workflows-to-appear-on-ledger-api' was not successful. New kind of error: no success error (request infinite retries). Retrying after 0.1s. Result: Outcome(false). 
+2025-10-07 22:25:05,425 [canton-env-ec-32] INFO  c.d.c.p.a.PingService:participant=sandbox - Now retrying operation 'wait-for-admin-workflows-to-appear-on-ledger-api'. 
+2025-10-07 22:25:05,442 [canton-env-ec-77] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:9b77e13aef334d0b740847ab293d318f - Received request for a package status: GetPackageStatusRequest(sandbox,65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e), packageId -> '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e'.
+2025-10-07 22:25:05,451 [canton-env-ec-77] INFO  c.d.c.p.a.PingService:participant=sandbox - The operation 'wait-for-admin-workflows-to-appear-on-ledger-api' was not successful. Retrying after 0.095s. Result: Outcome(false). 
+2025-10-07 22:25:05,518 [canton-env-ec-32] INFO  c.d.c.p.a.s.t.TransactionServiceImpl:participant=sandbox tid:04c3b556cbf92c14b1ee619ebd7047f5 - Received request for transactions, startExclusive -> '000000000000000001', endInclusive -> , filters -> {sandbox::12201cbcf245dd6ee0139000d0d0ff9e056b9e8e634dbb21ca1de699daa3bc9ca9fb: 'all-templates'}, verbose -> false, ledgerId -> 'sandbox'.
+2025-10-07 22:25:05,547 [canton-env-ec-79] INFO  c.d.c.p.a.PingService:participant=sandbox - Now retrying operation 'wait-for-admin-workflows-to-appear-on-ledger-api'. 
+2025-10-07 22:25:05,564 [canton-env-ec-77] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:d9382f1be357ef567cf0f92c52e80b4f - Received request for a package status: GetPackageStatusRequest(sandbox,65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e), packageId -> '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e'.
+2025-10-07 22:25:05,570 [canton-env-ec-79] INFO  c.d.c.p.a.PingService:participant=sandbox - The operation 'wait-for-admin-workflows-to-appear-on-ledger-api' was not successful. Retrying after 0.051s. Result: Outcome(false). 
+2025-10-07 22:25:05,622 [canton-env-ec-77] INFO  c.d.c.p.a.PingService:participant=sandbox - Now retrying operation 'wait-for-admin-workflows-to-appear-on-ledger-api'. 
+2025-10-07 22:25:05,636 [canton-env-ec-77] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:b93b420241bea6ca578a24c7dfa7f920 - Received request for a package status: GetPackageStatusRequest(sandbox,65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e), packageId -> '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e'.
+2025-10-07 22:25:05,739 [canton-env-ec-77] INFO  c.d.c.p.t.ParticipantTopologyManager:participant=sandbox tid:5dac968fff23b5f957a5d6faeeaa278b - Applied topology transaction Add OwnerToKeyMapping(PAR::sandbox::12201cbcf245..., SigningPublicKey(id = 12202014305f..., format = Tink, scheme = Ed25519)) at 2025-10-07T22:25:05.739016Z
+2025-10-07 22:25:05,745 [canton-env-ec-77] INFO  c.d.c.p.t.ParticipantTopologyManager:participant=sandbox tid:5dac968fff23b5f957a5d6faeeaa278b - Applied topology transaction Add OwnerToKeyMapping(PAR::sandbox::12201cbcf245..., EncryptionPublicKey(id = 12205cf260fa..., format = Tink, scheme = ECIES-P256_HMAC256_AES128-GCM)) at 2025-10-07T22:25:05.745044Z
+2025-10-07 22:25:05,747 [canton-env-ec-79] INFO  c.d.c.p.ParticipantNodeBootstrap:participant=sandbox - Initializing node with id NodeId(sandbox::12201cbcf245...)
+2025-10-07 22:25:05,751 [canton-env-ec-77] INFO  c.d.c.p.s.CantonSyncService:participant=sandbox tid:576652970ebc33855566cc9e713a1f39 - Reconnecting to domains List(). Already connected: Set()
+2025-10-07 22:25:05,755 [canton-env-ec-32] INFO  c.d.c.p.s.CantonSyncService:participant=sandbox tid:576652970ebc33855566cc9e713a1f39 - Successfully re-connected to domains List()
+2025-10-07 22:25:05,757 [main] INFO  c.d.c.e.CommunityEnvironment - Auto-connecting local participants List(sandbox) to local domains List(local)
+2025-10-07 22:25:05,840 [canton-env-ec-77] INFO  c.d.c.c.d.g.SequencerInfoLoader:participant=sandbox - Version handshake with sequencer Sequencer 'DefaultSequencer' and domain using protocol version 7 succeeded.
+2025-10-07 22:25:05,977 [canton-env-ec-79] INFO  c.d.c.p.t.ParticipantTopologyManager:participant=sandbox - Applied topology transaction Add ParticipantState(To, local::12201de3c7d4..., PAR::sandbox::12201cbcf245..., Submission, Ordinary) at 2025-10-07T22:25:05.977278Z
+2025-10-07 22:25:06,044 [canton-env-ec-27] INFO  c.d.c.s.c.SequencerClientImpl:participant=sandbox/domainId=local::12201de3c7d4 - No event found up to 0001-01-01T00:00:00Z. Resubscribing from the beginning.
+2025-10-07 22:25:06,045 [canton-env-ec-27] INFO  c.d.c.s.c.SequencerClientImpl:participant=sandbox/domainId=local::12201de3c7d4 - Processing events from the SequencedEventStore from 0001-01-01T00:00:00.000001Z on
+2025-10-07 22:25:06,047 [canton-env-ec-79] INFO  c.d.c.s.c.SequencerClientImpl:participant=sandbox/domainId=local::12201de3c7d4 - Starting subscription for alias=SEQ::local::12201de3c7d4... at timestamp None; next counter 0
+2025-10-07 22:25:06,048 [canton-env-ec-79] INFO  c.d.c.h.DelegatingMutableHealthComponent:participant=sandbox/domainId=local::12201de3c7d4 - 'sequencer-client' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:25:06,053 [canton-env-ec-27] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local - UNM::e2523e9134f904e6c45340055244104023c52cd0::12201cbcf245... subscribes from counter=0
+2025-10-07 22:25:06,125 [canton-env-ec-27] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:4a0e96ba1f31c0d81c0e02491f333e2b - 'UNM::e2523e9134f904e6c45340055244104023c52cd0::12201cbcf245...' sends request with id 'fd4ea0c7-b5af-459d-99b3-81f53ac6f886' of size 1428 bytes with 1 envelopes.
+2025-10-07 22:25:06,137 [canton-env-ec-79] INFO  c.d.c.d.s.s.SequencerReader$EventsReader:domain=local/subscriber=UNM::e2523e9134f904e6c45340055244104023c52cd0::12201cbcf245 tid:4a0e96ba1f31c0d81c0e02491f333e2b - Using approximate topology snapshot at 2025-10-07T22:24:57.245527Z for desired timestamp 2025-10-07T22:25:06.131022Z
+2025-10-07 22:25:06,231 [canton-env-ec-47] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:4a0e96ba1f31c0d81c0e02491f333e2b - Applied topology transaction Add NamespaceDelegation(12201cbcf245..., SigningPublicKey(id = 12201cbcf245..., format = Tink, scheme = Ed25519), true) at 2025-10-07T22:25:06.229969Z
+2025-10-07 22:25:06,246 [canton-env-ec-32] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:4a0e96ba1f31c0d81c0e02491f333e2b - Applied topology transaction Add OwnerToKeyMapping(PAR::sandbox::12201cbcf245..., SigningPublicKey(id = 12202014305f..., format = Tink, scheme = Ed25519)) at 2025-10-07T22:25:06.243313Z
+2025-10-07 22:25:06,256 [canton-env-ec-32] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:4a0e96ba1f31c0d81c0e02491f333e2b - Applied topology transaction Add OwnerToKeyMapping(PAR::sandbox::12201cbcf245..., EncryptionPublicKey(id = 12205cf260fa..., format = Tink, scheme = ECIES-P256_HMAC256_AES128-GCM)) at 2025-10-07T22:25:06.251980Z
+2025-10-07 22:25:06,278 [canton-env-ec-79] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:4a0e96ba1f31c0d81c0e02491f333e2b - Setting participant PAR::sandbox::12201cbcf245... state to ParticipantAttributes(Submission,Ordinary)
+2025-10-07 22:25:06,279 [canton-env-ec-79] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:4a0e96ba1f31c0d81c0e02491f333e2b - Applied topology transaction Add ParticipantState(From, local::12201de3c7d4..., PAR::sandbox::12201cbcf245..., Submission, Ordinary) at 2025-10-07T22:25:06.277823Z
+2025-10-07 22:25:06,282 [canton-env-ec-47] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:4a0e96ba1f31c0d81c0e02491f333e2b - 'DOM::local::12201de3c7d4...' sends request with id 'c0c74a22-e9d7-40a3-9119-0e6e3b5e0ddd' of size 920 bytes with 1 envelopes.
+2025-10-07 22:25:06,286 [canton-env-ec-77] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:4a0e96ba1f31c0d81c0e02491f333e2b - Applied topology transaction Add ParticipantState(To, local::12201de3c7d4..., PAR::sandbox::12201cbcf245..., Submission, Ordinary) at 2025-10-07T22:25:06.283169Z
+2025-10-07 22:25:06,287 [canton-env-ec-77] INFO  c.d.c.d.t.RequestProcessingStrategy$Impl:domain=local tid:4a0e96ba1f31c0d81c0e02491f333e2b - Successfully onboarded PAR::sandbox::12201cbcf245...
+2025-10-07 22:25:06,299 [canton-env-ec-77] INFO  c.d.c.d.t.DomainTopologyManagerRequestService:domain=local tid:4a0e96ba1f31c0d81c0e02491f333e2b - Register topology request by UNM::e2523e9134f904e6c45340055244104023c52cd0::12201cbcf245... for PAR::sandbox::12201cbcf245... yielded
+  Accepted -> Add NamespaceDelegation(12201cbcf245..., SigningPublicKey(id = 12201cbcf245..., format = Tink, scheme = Ed25519), true)
+  Accepted -> Add OwnerToKeyMapping(PAR::sandbox::12201cbcf245..., SigningPublicKey(id = 12202014305f..., format = Tink, scheme = Ed25519))
+  Accepted -> Add OwnerToKeyMapping(PAR::sandbox::12201cbcf245..., EncryptionPublicKey(id = 12205cf260fa..., format = Tink, scheme = ECIES-P256_HMAC256_AES128-GCM))
+  Accepted -> Add ParticipantState(To, local::12201de3c7d4..., PAR::sandbox::12201cbcf245..., Submission, Ordinary)
+2025-10-07 22:25:06,336 [canton-env-ec-75] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 1/1 Add NamespaceDelegation(12201cbcf245..., SigningPublicKey(id = 12201cbcf245..., format = Tink, scheme = Ed25519), true) with ts=EffectiveTime(2025-10-07T22:25:06.537221Z) (epsilon=250 ms)
+2025-10-07 22:25:06,339 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 1/1 Add NamespaceDelegation(12201cbcf245..., SigningPublicKey(id = 12201cbcf245..., format = Tink, scheme = Ed25519), true) with ts=EffectiveTime(2025-10-07T22:25:06.537221Z) (epsilon=250 ms)
+2025-10-07 22:25:06,355 [canton-env-ec-33] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:4a0e96ba1f31c0d81c0e02491f333e2b - 'DOM::local::12201de3c7d4...' sends request with id 'a09d5b51-b381-4ab2-b9ac-e824bac9eeb2' of size 545 bytes with 1 envelopes.
+2025-10-07 22:25:06,356 [canton-env-ec-27] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:4a0e96ba1f31c0d81c0e02491f333e2b - 'DOM::local::12201de3c7d4...' sends request with id 'e6f21364-4120-47e3-8606-bd69f91dedd6' of size 1554 bytes with 1 envelopes.
+2025-10-07 22:25:06,448 [canton-env-ec-79] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 1/3 Add OwnerToKeyMapping(PAR::sandbox::12201cbcf245..., SigningPublicKey(id = 12202014305f..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:25:06.620879Z) (epsilon=250 ms)
+2025-10-07 22:25:06,458 [canton-env-ec-79] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 2/3 Add OwnerToKeyMapping(PAR::sandbox::12201cbcf245..., EncryptionPublicKey(id = 12205cf260fa..., format = Tink, scheme = ECIES-P256_HMAC256_AES128-GCM)) with ts=EffectiveTime(2025-10-07T22:25:06.620879Z) (epsilon=250 ms)
+2025-10-07 22:25:06,459 [canton-env-ec-79] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 3/3 Add ParticipantState(From, local::12201de3c7d4..., PAR::sandbox::12201cbcf245..., Submission, Ordinary) with ts=EffectiveTime(2025-10-07T22:25:06.620879Z) (epsilon=250 ms)
+2025-10-07 22:25:06,464 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 1/3 Add OwnerToKeyMapping(PAR::sandbox::12201cbcf245..., SigningPublicKey(id = 12202014305f..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:25:06.620879Z) (epsilon=250 ms)
+2025-10-07 22:25:06,464 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 2/3 Add OwnerToKeyMapping(PAR::sandbox::12201cbcf245..., EncryptionPublicKey(id = 12205cf260fa..., format = Tink, scheme = ECIES-P256_HMAC256_AES128-GCM)) with ts=EffectiveTime(2025-10-07T22:25:06.620879Z) (epsilon=250 ms)
+2025-10-07 22:25:06,464 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 3/3 Add ParticipantState(From, local::12201de3c7d4..., PAR::sandbox::12201cbcf245..., Submission, Ordinary) with ts=EffectiveTime(2025-10-07T22:25:06.620879Z) (epsilon=250 ms)
+2025-10-07 22:25:06,466 [canton-env-ec-33] INFO  c.d.c.d.t.MemberTopologyCatchup:domain=local/identity tid:4a0e96ba1f31c0d81c0e02491f333e2b - Participant PAR::sandbox::12201cbcf245... is changing from None to Some(Submission), requires to catch up 10
+2025-10-07 22:25:06,470 [canton-env-ec-47] INFO  c.d.c.s.c.ResilientSequencerSubscription:participant=sandbox/domainId=local::12201de3c7d4 - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:25:06,471 [canton-env-ec-47] INFO  c.d.c.h.DelegatingMutableHealthComponent:participant=sandbox/domainId=local::12201de3c7d4 - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:25:06,475 [canton-env-ec-79] INFO  c.d.c.s.c.t.GrpcSequencerSubscription:participant=sandbox/domainId=local::12201de3c7d4 - GRPC subscription successfully closed due to client shutdown.
+2025-10-07 22:25:06,475 [canton-env-ec-79] INFO  c.d.c.n.g.ApiRequestLogger:domain=local tid:86b5100d69d0b72fd3cb5aa25bc02a67 - Request c.d.c.d.a.v.SequencerService/SubscribeUnauthenticatedVersioned by /127.0.0.1:44738: cancelled. Cancellations can be caused by timeouts, explicit cancellation by the client, network errors, etc.
+2025-10-07 22:25:06,494 [canton-env-ec-27] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:4a0e96ba1f31c0d81c0e02491f333e2b - 'DOM::local::12201de3c7d4...' sends request with id '026db5a9-cff3-4aab-8b92-a31a8f5556c3' of size 2643 bytes with 1 envelopes.
+2025-10-07 22:25:06,506 [canton-env-ec-79] INFO  c.d.c.c.d.g.GrpcSequencerConnectClient:participant=sandbox - The operation 'verify active' was not successful. New kind of error: no success error (request infinite retries). Retrying after 0.5s. Result: Right(false). 
+2025-10-07 22:25:06,543 [canton-env-ec-75] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:4a0e96ba1f31c0d81c0e02491f333e2b - 'DOM::local::12201de3c7d4...' sends request with id 'fe967c95-efa9-4d12-bb9a-00341b05616c' of size 939 bytes with 1 envelopes.
+2025-10-07 22:25:06,577 [canton-env-ec-33] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 1/1 Add ParticipantState(To, local::12201de3c7d4..., PAR::sandbox::12201cbcf245..., Submission, Ordinary) with ts=EffectiveTime(2025-10-07T22:25:06.797481Z) (epsilon=250 ms)
+2025-10-07 22:25:06,582 [canton-env-ec-47] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 1/1 Add ParticipantState(To, local::12201de3c7d4..., PAR::sandbox::12201cbcf245..., Submission, Ordinary) with ts=EffectiveTime(2025-10-07T22:25:06.797481Z) (epsilon=250 ms)
+2025-10-07 22:25:07,007 [canton-env-ec-79] INFO  c.d.c.c.d.g.GrpcSequencerConnectClient:participant=sandbox - Now retrying operation 'verify active'. 
+2025-10-07 22:25:07,040 [canton-env-ec-79] INFO  c.d.c.p.s.SyncDomainEphemeralStateFactoryImpl:participant=sandbox - Computed starting points: ProcessingStartingPoints(
+  clean replay = MessageCleanReplayStartingPoint(next request counter = 0, next sequencer counter = 0, prenext timestamp = 0001-01-01T00:00:00Z),
+  processing = MessageProcessingStartingPoint(next request counter = 0, next sequencer counter = 0, prenext timestamp = 0001-01-01T00:00:00Z),
+  rewound sequencer counter prehead = None()
+)
+2025-10-07 22:25:07,040 [canton-env-ec-79] INFO  c.d.c.s.m.InMemoryCursorPreheadStore:participant=sandbox/domain-alias=local - Rewinding prehead to None
+2025-10-07 22:25:07,183 [canton-env-ec-33] INFO  c.d.c.p.p.AcsCommitmentProcessor:participant=sandbox/domainId=local::12201de3c7d4 - Will use parallelism 2 when computing ACS commitments
+2025-10-07 22:25:07,189 [canton-env-ec-79] INFO  c.d.c.p.p.AcsCommitmentProcessor:participant=sandbox/domainId=local::12201de3c7d4 - Initialized from stored snapshot at RecordTime(timestamp = 0001-01-01T00:00:00Z, tieBreaker = -9223372036854775808) (might be incomplete)
+2025-10-07 22:25:07,190 [canton-env-ec-47] INFO  c.d.c.p.p.AcsCommitmentProcessor:participant=sandbox/domainId=local::12201de3c7d4 - Initialized the ACS commitment processor queue
+2025-10-07 22:25:07,198 [canton-env-ec-33] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'acs-commitment-processor' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:25:07,198 [canton-env-ec-33] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'acs-commitment-processor' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:25:07,198 [canton-env-ec-33] INFO  c.d.c.p.s.SyncDomain:participant=sandbox/domainId=local::12201de3c7d4 - 'sync-domain' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:25:07,199 [canton-env-ec-33] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:25:07,200 [canton-env-ec-33] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:25:07,200 [canton-env-ec-33] INFO  c.d.c.p.s.CantonSyncService:participant=sandbox - Connected to domain and starting synchronisation: Domain 'local'
+2025-10-07 22:25:07,218 [canton-env-ec-79] INFO  c.d.c.p.s.SyncDomain:participant=sandbox/domainId=local::12201de3c7d4 - Found 0 repair requests at request counters Seq()
+2025-10-07 22:25:07,223 [canton-env-ec-33] INFO  c.d.c.s.c.SequencerClientImpl:participant=sandbox/domainId=local::12201de3c7d4 - No event found up to 0001-01-01T00:00:00Z. Resubscribing from the beginning.
+2025-10-07 22:25:07,224 [canton-env-ec-33] INFO  c.d.c.s.c.SequencerClientImpl:participant=sandbox/domainId=local::12201de3c7d4 - Processing events from the SequencedEventStore from 0001-01-01T00:00:00.000001Z on
+2025-10-07 22:25:07,225 [canton-env-ec-77] INFO  c.d.c.s.c.SequencerClientImpl:participant=sandbox/domainId=local::12201de3c7d4 - Starting subscription for alias=SEQ::local::12201de3c7d4... at timestamp None; next counter 0
+2025-10-07 22:25:07,226 [canton-env-ec-77] INFO  c.d.c.h.DelegatingMutableHealthComponent:participant=sandbox/domainId=local::12201de3c7d4 - 'sequencer-client' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:25:07,226 [canton-env-ec-77] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sequencer-client' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:25:07,227 [canton-env-ec-77] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sequencer-client' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:25:07,249 [canton-env-ec-79] INFO  c.d.c.d.s.a.MemberAuthenticationServiceOld:domain=local - PAR::sandbox::12201cbcf245... authenticated new token with expiry 2025-10-07T23:25:07.249326Z
+2025-10-07 22:25:07,254 [canton-env-ec-47] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local - PAR::sandbox::12201cbcf245... subscribes from counter=0
+2025-10-07 22:25:07,267 [canton-env-ec-79] INFO  c.d.c.s.c.SequencedEventValidatorImpl:participant=sandbox/domainId=local::12201de3c7d4 tid:4a0e96ba1f31c0d81c0e02491f333e2b - Skipping signature verification of the first sequenced event due to a fresh subscription from SEQ::local::12201de3c7d4...
+2025-10-07 22:25:07,278 [canton-env-ec-79] INFO  c.d.c.p.s.SyncDomain:participant=sandbox/domainId=local::12201de3c7d4 tid:4a0e96ba1f31c0d81c0e02491f333e2b - Caught up with batch with counter=0 with sequencer with 772 ms delay
+2025-10-07 22:25:07,279 [canton-env-ec-79] INFO  c.d.c.p.s.SyncDomain$EventProcessingMonitor:participant=sandbox/domainId=local::12201de3c7d4 tid:4a0e96ba1f31c0d81c0e02491f333e2b - Replaying requests 0 up to clean prehead -1
+2025-10-07 22:25:07,280 [canton-env-ec-79] INFO  c.d.c.p.s.SyncDomain$EventProcessingMonitor:participant=sandbox/domainId=local::12201de3c7d4 tid:4a0e96ba1f31c0d81c0e02491f333e2b - Replaying or processing locally stored events with sequencer counters 0 to -1
+2025-10-07 22:25:07,298 [canton-env-ec-77] INFO  c.d.c.p.p.DefaultMessageDispatcher:participant=sandbox/domainId=local::12201de3c7d4 tid:4a0e96ba1f31c0d81c0e02491f333e2b - Processing event at sc=0, ts=2025-10-07T22:25:06.505459Z, with contents=DomainTopologyTransactionMessage
+2025-10-07 22:25:07,300 [canton-env-ec-79] INFO  c.d.c.t.p.DomainTopologyTransactionMessageValidator$Impl:participant=sandbox tid:4a0e96ba1f31c0d81c0e02491f333e2b - Using approximate topology snapshot at 0001-01-01T00:00:00.000001Z for desired timestamp 2025-10-07T22:25:06.505459Z
+2025-10-07 22:25:07,326 [canton-env-ec-77] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:4a0e96ba1f31c0d81c0e02491f333e2b - Updated topology change delay from=0s to 0.25s
+2025-10-07 22:25:07,328 [canton-env-ec-75] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 1/10 Add NamespaceDelegation(12201de3c7d4..., SigningPublicKey(id = 12201de3c7d4..., format = Tink, scheme = Ed25519), true) with ts=EffectiveTime(2025-10-07T22:25:06.505459Z) (epsilon=0 ms)
+2025-10-07 22:25:07,328 [canton-env-ec-75] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 2/10 Add OwnerToKeyMapping(DOM::local::12201de3c7d4..., SigningPublicKey(id = 1220d5b57cde..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:25:06.505459Z) (epsilon=0 ms)
+2025-10-07 22:25:07,329 [canton-env-ec-75] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 3/10 Add OwnerToKeyMapping(MED::local::12201de3c7d4..., SigningPublicKey(id = 1220a6e028e9..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:25:06.505459Z) (epsilon=0 ms)
+2025-10-07 22:25:07,329 [canton-env-ec-75] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 4/10 Add OwnerToKeyMapping(SEQ::local::12201de3c7d4..., SigningPublicKey(id = 12200815815d..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:25:06.505459Z) (epsilon=0 ms)
+2025-10-07 22:25:07,330 [canton-env-ec-75] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 5/10 Add NamespaceDelegation(12201cbcf245..., SigningPublicKey(id = 12201cbcf245..., format = Tink, scheme = Ed25519), true) with ts=EffectiveTime(2025-10-07T22:25:06.505459Z) (epsilon=0 ms)
+2025-10-07 22:25:07,331 [canton-env-ec-75] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 6/10 Add ParticipantState(From, local::12201de3c7d4..., PAR::sandbox::12201cbcf245..., Submission, Ordinary) with ts=EffectiveTime(2025-10-07T22:25:06.505459Z) (epsilon=0 ms)
+2025-10-07 22:25:07,332 [canton-env-ec-75] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 7/10 Add MediatorDomainState(Both, local::12201de3c7d4..., MED::local::12201de3c7d4...) with ts=EffectiveTime(2025-10-07T22:25:06.505459Z) (epsilon=0 ms)
+2025-10-07 22:25:07,333 [canton-env-ec-75] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 8/10 Add OwnerToKeyMapping(PAR::sandbox::12201cbcf245..., SigningPublicKey(id = 12202014305f..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:25:06.505459Z) (epsilon=0 ms)
+2025-10-07 22:25:07,334 [canton-env-ec-75] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 9/10 Add OwnerToKeyMapping(PAR::sandbox::12201cbcf245..., EncryptionPublicKey(id = 12205cf260fa..., format = Tink, scheme = ECIES-P256_HMAC256_AES128-GCM)) with ts=EffectiveTime(2025-10-07T22:25:06.505459Z) (epsilon=0 ms)
+2025-10-07 22:25:07,335 [canton-env-ec-75] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 10/10 Replace DomainParametersChange(
+  local::12201de3c7d4...,
+  DynamicDomainParameters(
+    participant response timeout = 30s,
+    mediator reaction timeout = 30s,
+    transfer exclusivity timeout = 1m,
+    topology change delay = 0.25s,
+    ledger time record time tolerance = 1m,
+    mediator deduplication timeout = 2m,
+    reconciliation interval = 1m,
+    max rate per participant = 1000000,
+    max request size = 10485760,
+    catchup config = CatchUpConfig(catchUpIntervalSkip = 5, nrIntervalsToTriggerCatchUp = 2)
+  )
+) with ts=EffectiveTime(2025-10-07T22:25:06.505459Z) (epsilon=0 ms)
+2025-10-07 22:25:07,362 [canton-env-ec-75] INFO  c.d.c.p.t.c.MissingKeysAlerter:participant=sandbox tid:4a0e96ba1f31c0d81c0e02491f333e2b - Domain local::12201de3c7d4... update my participant permission as of 2025-10-07T22:25:06.505459Z to Submission, Ordinary
+2025-10-07 22:25:07,390 [input-mapping-pool-2] INFO  c.d.c.p.i.p.ParallelIndexerSubscription:participant=sandbox tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing at offset=000000000000000003 PartyAddedToParticipant(recordTime = 2025-10-07T22:25:07.371583Z, party = sandbox::12201cbcf245..., displayName = '', participantId = sandbox::12201cbcf245..., ...)
+2025-10-07 22:25:07,480 [canton-env-ec-47] INFO  c.d.c.p.p.DefaultMessageDispatcher:participant=sandbox/domainId=local::12201de3c7d4 tid:4a0e96ba1f31c0d81c0e02491f333e2b - Processing event at sc=1, ts=2025-10-07T22:25:06.547481Z, with contents=DomainTopologyTransactionMessage
+2025-10-07 22:25:07,496 [canton-env-ec-47] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:4a0e96ba1f31c0d81c0e02491f333e2b - Storing topology transaction 1/1 Add ParticipantState(To, local::12201de3c7d4..., PAR::sandbox::12201cbcf245..., Submission, Ordinary) with ts=EffectiveTime(2025-10-07T22:25:06.797481Z) (epsilon=250 ms)
+2025-10-07 22:25:07,778 [canton-env-ec-75] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:80c001325eb53ffda0d21fe44ea5d17d - 'PAR::sandbox::12201cbcf245...' sends request with id 'c287b21d-2356-4cd1-82a1-85e18e1185dd' of size 2092 bytes with 1 envelopes.
+2025-10-07 22:25:07,810 [canton-env-ec-75] INFO  c.d.c.p.p.DefaultMessageDispatcher:participant=sandbox/domainId=local::12201de3c7d4 tid:80c001325eb53ffda0d21fe44ea5d17d - Processing event at sc=2, ts=2025-10-07T22:25:07.783224Z, messageId=c287b21d-2356-4cd1-82a1-85e18e1185dd, with contents=Seq()
+2025-10-07 22:25:07,823 [canton-env-ec-32] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:80c001325eb53ffda0d21fe44ea5d17d - Applied topology transaction Add VettedPackages(
+  participant = sandbox::12201cbcf245...,
+  packages = Seq(
+    1cc0ce9df772...,
+    65921e553a35...,
+    6851f194e144...,
+    57b5c520512c...,
+    cb0552debf21...,
+    3f4deaf145a1...,
+    86828b984346...,
+    f20de1e4e37b...,
+    76bf0fd12bd9...,
+    38e6274601b2...,
+    d58cf9939847...,
+    40f452260bef...,
+    e491352788e5...,
+    6839a6d3d430...,
+    518032f41fd0...,
+    e8b3e0650dc0...,
+    18597917bc74...,
+    852d8e3a8ccf...,
+    10e0333b52bb...,
+    bfcd37bd6b84...,
+    cc348d369011...,
+    057eed1fd48c...,
+    d14e08374fc7...,
+    c1f1f0055879...,
+    6c2c0667393c...,
+    e22bce619ae2...,
+    e4cc67c3264e...,
+    8a7806365bbd...,
+    97b883cd8a2b...,
+    5921708ce82f...,
+    733e38d36a27...,
+    99a2705ed38c...
+  )
+) at 2025-10-07T22:25:07.823322Z
+2025-10-07 22:25:07,829 [canton-env-ec-75] INFO  c.d.c.d.t.DomainTopologyManagerRequestService:domain=local tid:80c001325eb53ffda0d21fe44ea5d17d - Register topology request by PAR::sandbox::12201cbcf245... for PAR::sandbox::12201cbcf245... yielded
+  Accepted -> Add VettedPackages(
+  participant = sandbox::12201cbcf245...,
+  packages = Seq(
+    1cc0ce9df772...,
+    65921e553a35...,
+    6851f194e144...,
+    57b5c520512c...,
+    cb0552debf21...,
+    3f4deaf145a1...,
+    86828b984346...,
+    f20de1e4e37b...,
+    76bf0fd12bd9...,
+    38e6274601b2...,
+    d58cf9939847...,
+    40f452260bef...,
+    e491352788e5...,
+    6839a6d3d430...,
+    518032f41fd0...,
+    e8b3e0650dc0...,
+    18597917bc74...,
+    852d8e3a8ccf...,
+    10e0333b52bb...,
+    bfcd37bd6b84...,
+    cc348d369011...,
+    057eed1fd48c...,
+    d14e08374fc7...,
+    c1f1f0055879...,
+    6c2c0667393c...,
+    e22bce619ae2...,
+    e4cc67c3264e...,
+    8a7806365bbd...,
+    97b883cd8a2b...,
+    5921708ce82f...,
+    733e38d36a27...,
+    99a2705ed38c...
+  )
+)
+2025-10-07 22:25:07,839 [canton-env-ec-79] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:80c001325eb53ffda0d21fe44ea5d17d - 'DOM::local::12201de3c7d4...' sends request with id 'a950a8b2-fbaf-4c27-b206-92fe6ee5852f' of size 2227 bytes with 1 envelopes.
+2025-10-07 22:25:07,841 [canton-env-ec-32] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:80c001325eb53ffda0d21fe44ea5d17d - 'DOM::local::12201de3c7d4...' sends request with id '643b4841-225f-422d-8298-cf8bd3f9cf12' of size 519 bytes with 1 envelopes.
+2025-10-07 22:25:07,886 [canton-env-ec-32] INFO  c.d.c.p.p.DefaultMessageDispatcher:participant=sandbox/domainId=local::12201de3c7d4 tid:80c001325eb53ffda0d21fe44ea5d17d - Processing event at sc=3, ts=2025-10-07T22:25:07.848141Z, with contents=DomainTopologyTransactionMessage
+2025-10-07 22:25:07,920 [canton-env-ec-77] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:80c001325eb53ffda0d21fe44ea5d17d - Storing topology transaction 1/1 Add VettedPackages(
+  participant = sandbox::12201cbcf245...,
+  packages = Seq(
+    1cc0ce9df772...,
+    65921e553a35...,
+    6851f194e144...,
+    57b5c520512c...,
+    cb0552debf21...,
+    3f4deaf145a1...,
+    86828b984346...,
+    f20de1e4e37b...,
+    76bf0fd12bd9...,
+    38e6274601b2...,
+    d58cf9939847...,
+    40f452260bef...,
+    e491352788e5...,
+    6839a6d3d430...,
+    518032f41fd0...,
+    e8b3e0650dc0...,
+    18597917bc74...,
+    852d8e3a8ccf...,
+    10e0333b52bb...,
+    bfcd37bd6b84...,
+    cc348d369011...,
+    057eed1fd48c...,
+    d14e08374fc7...,
+    c1f1f0055879...,
+    6c2c0667393c...,
+    e22bce619ae2...,
+    e4cc67c3264e...,
+    8a7806365bbd...,
+    97b883cd8a2b...,
+    5921708ce82f...,
+    733e38d36a27...,
+    99a2705ed38c...
+  )
+) with ts=EffectiveTime(2025-10-07T22:25:08.098141Z) (epsilon=250 ms)
+2025-10-07 22:25:07,924 [canton-env-ec-32] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:80c001325eb53ffda0d21fe44ea5d17d - Storing topology transaction 1/1 Add VettedPackages(
+  participant = sandbox::12201cbcf245...,
+  packages = Seq(
+    1cc0ce9df772...,
+    65921e553a35...,
+    6851f194e144...,
+    57b5c520512c...,
+    cb0552debf21...,
+    3f4deaf145a1...,
+    86828b984346...,
+    f20de1e4e37b...,
+    76bf0fd12bd9...,
+    38e6274601b2...,
+    d58cf9939847...,
+    40f452260bef...,
+    e491352788e5...,
+    6839a6d3d430...,
+    518032f41fd0...,
+    e8b3e0650dc0...,
+    18597917bc74...,
+    852d8e3a8ccf...,
+    10e0333b52bb...,
+    bfcd37bd6b84...,
+    cc348d369011...,
+    057eed1fd48c...,
+    d14e08374fc7...,
+    c1f1f0055879...,
+    6c2c0667393c...,
+    e22bce619ae2...,
+    e4cc67c3264e...,
+    8a7806365bbd...,
+    97b883cd8a2b...,
+    5921708ce82f...,
+    733e38d36a27...,
+    99a2705ed38c...
+  )
+) with ts=EffectiveTime(2025-10-07T22:25:08.098141Z) (epsilon=250 ms)
+2025-10-07 22:25:07,931 [canton-env-ec-33] INFO  c.d.c.p.p.DefaultMessageDispatcher:participant=sandbox/domainId=local::12201de3c7d4 tid:80c001325eb53ffda0d21fe44ea5d17d - Processing event at sc=4, ts=2025-10-07T22:25:07.856895Z, with contents=RegisterTopologyTransactionResponse
+2025-10-07 22:25:07,939 [canton-env-ec-76] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:80c001325eb53ffda0d21fe44ea5d17d - Storing topology transaction 1/1 Add VettedPackages(
+  participant = sandbox::12201cbcf245...,
+  packages = Seq(
+    1cc0ce9df772...,
+    65921e553a35...,
+    6851f194e144...,
+    57b5c520512c...,
+    cb0552debf21...,
+    3f4deaf145a1...,
+    86828b984346...,
+    f20de1e4e37b...,
+    76bf0fd12bd9...,
+    38e6274601b2...,
+    d58cf9939847...,
+    40f452260bef...,
+    e491352788e5...,
+    6839a6d3d430...,
+    518032f41fd0...,
+    e8b3e0650dc0...,
+    18597917bc74...,
+    852d8e3a8ccf...,
+    10e0333b52bb...,
+    bfcd37bd6b84...,
+    cc348d369011...,
+    057eed1fd48c...,
+    d14e08374fc7...,
+    c1f1f0055879...,
+    6c2c0667393c...,
+    e22bce619ae2...,
+    e4cc67c3264e...,
+    8a7806365bbd...,
+    97b883cd8a2b...,
+    5921708ce82f...,
+    733e38d36a27...,
+    99a2705ed38c...
+  )
+) with ts=EffectiveTime(2025-10-07T22:25:08.098141Z) (epsilon=250 ms)
+2025-10-07 22:25:07,945 [canton-env-ec-47] INFO  c.d.c.p.s.SyncDomainEphemeralState:participant=sandbox/domain-alias=local - 'sync-domain-ephemeral' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:25:07,945 [canton-env-ec-47] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain-ephemeral' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:25:07,947 [canton-env-ec-47] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain-ephemeral' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:25:07,980 [canton-env-ec-32] INFO  c.d.c.p.a.s.ApiActiveContractsService:participant=sandbox tid:e47e17e230e8d1b0396007f537b1af53 - Received request for active contracts: GetActiveContractsRequest(sandbox,Some(TransactionFilter(Map(sandbox::12201cbcf245dd6ee0139000d0d0ff9e056b9e8e634dbb21ca1de699daa3bc9ca9fb -> Filters(Some(InclusiveFilters(Vector(Identifier(65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e,PingPong,PingProposal), Identifier(65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e,PingPong,Ping), Identifier(65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e,PingPong,Pong), Identifier(65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e,PingPong,Explode), Identifier(65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e,PingPong,Merge), Identifier(65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e,PingPong,Collapse)),Vector(),Vector())))))),false,), filters -> {sandbox::12201cbcf245dd6ee0139000d0d0ff9e056b9e8e634dbb21ca1de699daa3bc9ca9fb: ['65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e:PingPong:Pong', '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e:PingPong:Collapse', '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e:PingPong:PingProposal', '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e:PingPong:Explode', '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e:PingPong:Merge', '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e:PingPong:Ping']}.
+2025-10-07 22:25:08,005 [main] INFO  c.d.c.e.CommunityEnvironment tid:576652970ebc33855566cc9e713a1f39 - Successfully started all nodes
+2025-10-07 22:25:08,010 [main] INFO  c.digitalasset.canton.ServerRunner - Canton started
+2025-10-07 22:25:08,057 [Thread-0] INFO  c.d.canton.CantonCommunityApp$ - Shutting down...
+2025-10-07 22:25:08,060 [Thread-0] INFO  c.d.c.e.CommunityEnvironment - Closing environment...
+2025-10-07 22:25:08,063 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:25:08,063 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain-ephemeral' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:25:08,064 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sequencer-client' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:25:08,064 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'acs-commitment-processor' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:25:08,069 [canton-env-ec-32] INFO  c.d.c.p.ParticipantNode:participant=sandbox - Stopping participant node
+2025-10-07 22:25:08,074 [canton-env-ec-76] INFO  c.d.c.n.g.ApiRequestLogger:participant=sandbox tid:04c3b556cbf92c14b1ee619ebd7047f5 - Request c.d.l.a.v.TransactionService/GetTransactions by /127.0.0.1:52474: cancelled. Cancellations can be caused by timeouts, explicit cancellation by the client, network errors, etc.
+2025-10-07 22:25:08,088 [canton-env-ec-76] INFO  c.d.c.p.a.s.c.CommandServiceImpl:participant=sandbox - Shutting down Command Service.
+2025-10-07 22:25:08,098 [canton-env-ec-76] INFO  com.zaxxer.hikari.HikariDataSource - daml.index.db.connection.api-server - Shutdown initiated...
+2025-10-07 22:25:08,101 [canton-env-ec-76] INFO  com.zaxxer.hikari.HikariDataSource - daml.index.db.connection.api-server - Shutdown completed.
+2025-10-07 22:25:08,101 [canton-env-ec-47] INFO  c.d.c.p.i.RecoveringIndexer:participant=sandbox - Stopping Indexer Server
+2025-10-07 22:25:08,108 [canton-env-ec-33] INFO  com.zaxxer.hikari.HikariDataSource - daml.index.db.connection.indexer - Shutdown initiated...
+2025-10-07 22:25:08,110 [canton-env-ec-33] INFO  com.zaxxer.hikari.HikariDataSource - daml.index.db.connection.indexer - Shutdown completed.
+2025-10-07 22:25:08,110 [canton-env-ec-33] INFO  c.d.c.p.i.RecoveringIndexer:participant=sandbox - Successfully finished processing state updates
+2025-10-07 22:25:08,110 [canton-env-ec-33] INFO  c.d.c.p.i.p.ParallelIndexerFactory$:participant=sandbox - Indexing finished.
+2025-10-07 22:25:08,111 [canton-env-ec-33] INFO  c.d.c.p.i.RecoveringIndexer:participant=sandbox - Stopped Indexer Server
+2025-10-07 22:25:08,113 [canton-env-ec-33] INFO  c.d.c.p.DispatcherState:participant=sandbox - Shutting down Ledger API offset dispatcher state.
+2025-10-07 22:25:08,117 [canton-env-ec-33] INFO  c.d.c.p.DispatcherState:participant=sandbox - Ledger API offset dispatcher shutdown.
+2025-10-07 22:25:08,445 [canton-env-ec-77] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:ffebe34c524fc26d63de66d6c2f887b1 - 'PAR::sandbox::12201cbcf245...' sends request with id 'tick-1b6f12ce-2064-4847-b4d8-b0ff94dff8fb' of size 337 bytes with 0 envelopes.
+2025-10-07 22:25:08,476 [canton-env-ec-32] INFO  c.d.c.p.s.SyncDomain:participant=sandbox/domainId=local::12201de3c7d4 - 'sync-domain' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:25:08,477 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:25:08,498 [canton-env-ec-32] INFO  c.d.c.s.c.ResilientSequencerSubscription:participant=sandbox/domainId=local::12201de3c7d4 - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:25:08,499 [canton-env-ec-32] INFO  c.d.c.h.DelegatingMutableHealthComponent:participant=sandbox/domainId=local::12201de3c7d4 - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:25:08,499 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:25:08,500 [canton-env-ec-76] INFO  c.d.c.s.c.t.GrpcSequencerSubscription:participant=sandbox/domainId=local::12201de3c7d4 - GRPC subscription successfully closed due to client shutdown.
+2025-10-07 22:25:08,501 [canton-env-ec-76] INFO  c.d.c.n.g.ApiRequestLogger:domain=local tid:66c9d154ae5d688af8ea650d9afebfab - Request c.d.c.d.a.v.SequencerService/SubscribeVersioned by /127.0.0.1:44756: cancelled. Cancellations can be caused by timeouts, explicit cancellation by the client, network errors, etc.
+2025-10-07 22:25:08,506 [canton-env-ec-33] INFO  c.d.c.p.s.CantonSyncService:participant=sandbox - Domain 'local' disconnected because sequencer client was closed
+2025-10-07 22:25:08,507 [canton-env-ec-32] INFO  c.d.c.p.p.AcsCommitmentProcessor:participant=sandbox/domainId=local::12201de3c7d4 - 'acs-commitment-processor' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:25:08,508 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'acs-commitment-processor' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:25:08,515 [canton-env-ec-33] INFO  c.d.c.p.p.AcsCommitmentProcessor:participant=sandbox/domainId=local::12201de3c7d4 tid:a5cdc8adcd46bbc4affffeedbc920f92 - Giving up on producing ACS commitment due to shutdown
+2025-10-07 22:25:08,517 [canton-env-ec-32] INFO  c.d.c.p.s.SyncDomainEphemeralState:participant=sandbox/domain-alias=local - 'sync-domain-ephemeral' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:25:08,518 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain-ephemeral' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:25:08,523 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain' is now in state Failed(Component is closed). Previous state was Failed(Disconnected from domain).
+2025-10-07 22:25:08,523 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain-ephemeral' is now in state Failed(Component is closed). Previous state was Failed(Disconnected from domain).
+2025-10-07 22:25:08,524 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sequencer-client' is now in state Failed(Component is closed). Previous state was Failed(Disconnected from domain).
+2025-10-07 22:25:08,524 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'acs-commitment-processor' is now in state Failed(Component is closed). Previous state was Failed(Disconnected from domain).
+2025-10-07 22:25:08,525 [canton-env-ec-32] INFO  c.d.c.r.MemoryStorage:participant=sandbox - 'memory_storage' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:25:08,525 [canton-env-ec-32] INFO  c.d.c.p.ParticipantNodeBootstrap:participant=sandbox - 'participant' is now in state ServingStatus(status = 'NOT_SERVING'). Previous state was ServingStatus(status = 'SERVING').
+2025-10-07 22:25:08,526 [canton-env-ec-32] INFO  c.d.c.c.Crypto:participant=sandbox - 'crypto' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:25:08,526 [canton-env-ec-32] INFO  c.d.c.c.p.t.TinkPrivateCrypto:participant=sandbox - 'tink-private-crypto' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:25:08,529 [canton-env-ec-32] INFO  c.d.c.d.DomainNodeBootstrap:domain=local - Stopping domain node
+2025-10-07 22:25:08,532 [canton-env-ec-32] INFO  c.d.c.d.t.DomainTopologySender$Impl:domain=local/identity - 'domain-topology-sender' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:25:08,532 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:domain=local - 'domain-topology-sender' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:25:08,534 [canton-env-ec-32] INFO  c.d.c.s.c.ResilientSequencerSubscription:domain=local/client=topology-manager - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:25:08,534 [canton-env-ec-32] INFO  c.d.c.h.DelegatingMutableHealthComponent:domain=local/client=topology-manager - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:25:08,535 [canton-env-ec-27] INFO  c.d.c.s.c.t.GrpcSequencerSubscription:domain=local/client=topology-manager - GRPC subscription successfully closed due to client shutdown.
+2025-10-07 22:25:08,536 [canton-env-ec-47] INFO  c.d.c.n.g.ApiRequestLogger:domain=local tid:3efa3408679401481e25547f4ab4821e - Request c.d.c.d.a.v.SequencerService/SubscribeVersioned by /127.0.0.1:35550: cancelled. Cancellations can be caused by timeouts, explicit cancellation by the client, network errors, etc.
+2025-10-07 22:25:08,552 [canton-env-ec-32] INFO  c.d.c.s.c.ResilientSequencerSubscription:domain=local/client=mediator - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:25:08,553 [canton-env-ec-32] INFO  c.d.c.h.DelegatingMutableHealthComponent:domain=local/client=mediator - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:25:08,554 [canton-env-ec-33] INFO  c.d.c.s.c.t.GrpcSequencerSubscription:domain=local/client=mediator - GRPC subscription successfully closed due to client shutdown.
+2025-10-07 22:25:08,555 [canton-env-ec-33] INFO  c.d.c.n.g.ApiRequestLogger:domain=local tid:92ef4262bc8dd6f6ed770e4bb179c515 - Request c.d.c.d.a.v.SequencerService/SubscribeVersioned by /127.0.0.1:35556: cancelled. Cancellations can be caused by timeouts, explicit cancellation by the client, network errors, etc.
+2025-10-07 22:25:08,563 [canton-env-ec-32] INFO  c.d.c.d.s.s.DatabaseSequencer:domain=local - 'sequencer' is now in state SequencerHealthStatus(active = false, details = Sequencer is closed). Previous state was SequencerHealthStatus(active = true).
+2025-10-07 22:25:08,563 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthQuasiComponent:domain=local - 'sequencer' is now in state SequencerHealthStatus(active = false, details = Sequencer is closed). Previous state was SequencerHealthStatus(active = true).
+2025-10-07 22:25:08,564 [canton-env-ec-32] INFO  c.d.c.d.DomainNodeBootstrap:domain=local - 'sequencer-health-check-service' is now in state ServingStatus(status = 'NOT_SERVING'). Previous state was ServingStatus(status = 'SERVING').
+2025-10-07 22:25:08,574 [canton-env-ec-32] INFO  c.d.c.r.MemoryStorage:domain=local - 'memory_storage' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:25:08,574 [canton-env-ec-32] INFO  c.d.c.d.DomainNodeBootstrap:domain=local - 'domain' is now in state ServingStatus(status = 'NOT_SERVING'). Previous state was ServingStatus(status = 'SERVING').
+2025-10-07 22:25:08,575 [canton-env-ec-32] INFO  c.d.c.crypto.Crypto:domain=local - 'crypto' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:25:08,575 [canton-env-ec-32] INFO  c.d.c.c.p.t.TinkPrivateCrypto:domain=local - 'tink-private-crypto' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:25:08,596 [canton-env-ec-32] INFO  o.a.pekko.actor.CoordinatedShutdown - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
+2025-10-07 22:25:08,625 [Thread-0] INFO  c.d.canton.CantonCommunityApp$ - Shutdown complete.
+2025-10-07 22:25:08,626 [Thread-0] INFO  c.d.canton.CantonCommunityApp$ - Shutting down logger. Bye bye.
+2025-10-07 22:46:53,047 [main] INFO  c.d.canton.CantonCommunityApp$ - Starting Canton version 2.10.2
+2025-10-07 22:46:54,108 [main] INFO  c.d.canton.CantonCommunityApp$ - Starting up with resolved config:
+domains {
+    local {
+        admin-api {
+            port=6868
+        }
+        init {
+            domain-parameters {
+                protocol-version="7"
+            }
+        }
+        public-api {
+            port=6867
+        }
+        storage {
+            type=memory
+        }
+    }
+}
+parameters {
+    dev-version-support=true
+    non-standard-config=true
+    ports-file="/tmp/extra-dir-40158317811029/canton-portfile.json"
+}
+participants {
+    sandbox {
+        admin-api {
+            port=6866
+        }
+        ledger-api {
+            port=6865
+            user-management-service {
+                enabled=true
+            }
+        }
+        parameters {
+            dev-version-support=true
+        }
+        storage {
+            type=memory
+        }
+    }
+}
+
+2025-10-07 22:46:54,138 [main] INFO  c.d.c.e.CommunityEnvironment - Deriving 2 as number of threads from 'sys.runtime.availableProcessors()'. Please use '-Dscala.concurrent.context.numThreads' to override.
+2025-10-07 22:46:54,145 [main] INFO  c.d.c.e.CommunityEnvironment - Creating ForkJoinPool with parallelism = 3 (instead of 2) to avoid starvation.
+2025-10-07 22:46:54,455 [canton-env-ec-27] INFO  o.a.pekko.event.slf4j.Slf4jLogger - Slf4jLogger started
+2025-10-07 22:46:54,565 [main] INFO  c.d.c.t.OpenTelemetryFactory$ - Initializing open telemetry with Exporter.Disabled
+2025-10-07 22:46:54,638 [main] INFO  c.d.c.e.CommunityEnvironment tid:5df2a199d3266c5bf55d7da1e86ce13e - Automatically starting all instances
+2025-10-07 22:46:54,899 [canton-env-ec-27] INFO  c.d.c.crypto.Crypto:domain=local - 'crypto' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:46:54,981 [canton-env-ec-33] INFO  c.d.c.d.DomainNodeBootstrap:domain=local - Starting admin-api services on CommunityAdminServerConfig(127.0.0.1,Some(6868),None,Some(BasicKeepAliveServerConfig(40s,20s,20s,false)),10485760,List(),None)
+2025-10-07 22:46:55,041 [canton-env-ec-31] INFO  c.d.c.c.Crypto:participant=sandbox - 'crypto' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:46:55,048 [canton-env-ec-32] INFO  c.d.c.p.ParticipantNodeBootstrap:participant=sandbox - Starting admin-api services on CommunityAdminServerConfig(127.0.0.1,Some(6866),None,Some(BasicKeepAliveServerConfig(40s,20s,20s,false)),10485760,List(),None)
+2025-10-07 22:46:55,605 [canton-env-ec-32] INFO  c.d.c.p.ParticipantNodeBootstrap:participant=sandbox - 'participant' is now in state ServingStatus(status = 'SERVING'). Previous state was ServingStatus(status = 'NOT_SERVING').
+2025-10-07 22:46:55,608 [canton-env-ec-33] INFO  c.d.c.d.DomainNodeBootstrap:domain=local - 'domain' is now in state ServingStatus(status = 'SERVING'). Previous state was ServingStatus(status = 'NOT_SERVING').
+2025-10-07 22:46:55,890 [canton-env-ec-27] INFO  c.d.c.p.ParticipantNodeBootstrap:participant=sandbox - Node is not initialized yet. Performing automated default initialization.
+2025-10-07 22:46:55,894 [canton-env-ec-32] INFO  c.d.c.d.DomainNodeBootstrap:domain=local - Node is not initialized yet. Performing automated default initialization.
+2025-10-07 22:46:56,454 [canton-env-ec-32] INFO  c.d.c.p.t.ParticipantTopologyManager:participant=sandbox tid:3c5544f9125d9a475ef740818a818c73 - Applied topology transaction Add NamespaceDelegation(1220c1e8abe4..., SigningPublicKey(id = 1220c1e8abe4..., format = Tink, scheme = Ed25519), true) at 2025-10-07T22:46:56.450414Z
+2025-10-07 22:46:56,454 [canton-env-ec-31] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:e4e031b8f5954c7c1db9a3a27a267399 - Applied topology transaction Add NamespaceDelegation(1220ea23d5cf..., SigningPublicKey(id = 1220ea23d5cf..., format = Tink, scheme = Ed25519), true) at 2025-10-07T22:46:56.448918Z
+2025-10-07 22:46:56,544 [canton-env-ec-31] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:e4e031b8f5954c7c1db9a3a27a267399 - Applied topology transaction Replace DomainParametersChange(
+  local::1220ea23d5cf...,
+  DynamicDomainParameters(
+    participant response timeout = 30s,
+    mediator reaction timeout = 30s,
+    transfer exclusivity timeout = 1m,
+    topology change delay = 0.25s,
+    ledger time record time tolerance = 1m,
+    mediator deduplication timeout = 2m,
+    reconciliation interval = 1m,
+    max rate per participant = 1000000,
+    max request size = 10485760,
+    catchup config = CatchUpConfig(catchUpIntervalSkip = 5, nrIntervalsToTriggerCatchUp = 2)
+  )
+) at 2025-10-07T22:46:56.538362Z
+2025-10-07 22:46:56,575 [canton-env-ec-31] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:e4e031b8f5954c7c1db9a3a27a267399 - Applied topology transaction Add OwnerToKeyMapping(DOM::local::1220ea23d5cf..., SigningPublicKey(id = 1220716822a3..., format = Tink, scheme = Ed25519)) at 2025-10-07T22:46:56.573475Z
+2025-10-07 22:46:56,595 [canton-env-ec-33] INFO  c.d.c.d.t.DomainTopologyManager:domain=local - Applied topology transaction Add OwnerToKeyMapping(MED::local::1220ea23d5cf..., SigningPublicKey(id = 1220911e6ec0..., format = Tink, scheme = Ed25519)) at 2025-10-07T22:46:56.594429Z
+2025-10-07 22:46:56,623 [canton-env-ec-32] INFO  c.d.c.d.t.DomainTopologyManager:domain=local - Applied topology transaction Add MediatorDomainState(Both, local::1220ea23d5cf..., MED::local::1220ea23d5cf...) at 2025-10-07T22:46:56.622344Z
+2025-10-07 22:46:56,624 [canton-env-ec-27] INFO  c.d.c.p.a.PackageUploader:participant=sandbox - Initializing Upgradable Package Resolution View
+2025-10-07 22:46:56,632 [canton-env-ec-32] INFO  c.d.c.p.a.PackageUploader:participant=sandbox - Upgradable Package Resolution View has been initialized (5 ms)
+2025-10-07 22:46:56,677 [canton-env-ec-32] INFO  c.d.c.d.t.DomainTopologyManager:domain=local - Applied topology transaction Add OwnerToKeyMapping(SEQ::local::1220ea23d5cf..., SigningPublicKey(id = 12200903682e..., format = Tink, scheme = Ed25519)) at 2025-10-07T22:46:56.673667Z
+2025-10-07 22:46:56,679 [canton-env-ec-27] INFO  c.d.c.d.DomainNodeBootstrap:domain=local - Initializing node with id NodeId(local::1220ea23d5cf...)
+2025-10-07 22:46:56,799 [canton-env-ec-27] INFO  c.d.c.p.s.CantonSyncService:participant=sandbox tid:aea0628647b7d9c36b10db85341bfb8b - Recovering published timely rejections
+2025-10-07 22:46:56,829 [canton-env-ec-31] INFO  c.d.c.p.s.CantonSyncService:participant=sandbox tid:aea0628647b7d9c36b10db85341bfb8b - Publishing the unpublished events from the ParticipantEventLog
+2025-10-07 22:46:57,134 [canton-env-ec-33] INFO  c.d.c.p.l.a.StartableStoppableLedgerApiServer:participant=sandbox - Creating storage, num-indexer: 16, num-ledger-api: 1
+2025-10-07 22:46:57,235 [canton-env-ec-35] INFO  c.d.c.d.s.SequencerRuntime:domain=local - Sequencer is healthy
+2025-10-07 22:46:57,292 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthQuasiComponent:domain=local - 'sequencer' is now in state SequencerHealthStatus(active = true). Previous state was SequencerHealthStatus(active = false).
+2025-10-07 22:46:57,295 [canton-env-ec-32] INFO  c.d.c.d.DomainNodeBootstrap:domain=local - 'sequencer-health-check-service' is now in state ServingStatus(status = 'SERVING'). Previous state was ServingStatus(status = 'NOT_SERVING').
+2025-10-07 22:46:57,564 [canton-env-ec-35] INFO  c.d.c.p.s.b.VerifiedDataSource$:participant=sandbox - Attempting to connect to the database (attempt 1/600)
+2025-10-07 22:46:58,015 [canton-env-ec-33] INFO  c.d.c.p.s.FlywayMigrations:participant=sandbox - Ensuring Flyway migration has either not started or there are no pending migrations...
+2025-10-07 22:46:58,027 [canton-env-ec-33] INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.15.2 by Redgate
+2025-10-07 22:46:58,033 [canton-env-ec-33] INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+2025-10-07 22:46:58,033 [canton-env-ec-33] INFO  o.f.c.i.license.VersionPrinter - 
+2025-10-07 22:46:58,124 [canton-env-ec-32] INFO  c.d.c.s.c.SequencerClientImpl:domain=local/client=topology-manager - No event found up to 0001-01-01T00:00:00Z. Resubscribing from the beginning.
+2025-10-07 22:46:58,125 [canton-env-ec-32] INFO  c.d.c.s.c.SequencerClientImpl:domain=local/client=topology-manager - Processing events from the SequencedEventStore from 0001-01-01T00:00:00.000001Z on
+2025-10-07 22:46:58,126 [canton-env-ec-33] INFO  o.f.c.i.d.base.BaseDatabaseType - Database: jdbc:h2:mem:ledger_api_sandbox1220c1e8abe4783b49cb545dd732ba9dbfe2bba3a8c254fb0785a36f4d1ea8263887_88dbfcf6c49941adb91218217ad9460d (H2 2.1)
+2025-10-07 22:46:58,214 [canton-env-ec-27] INFO  c.d.c.s.c.SequencerClientImpl:domain=local/client=topology-manager - Starting subscription for alias=SEQ::local::1220ea23d5cf... at timestamp None; next counter 0
+2025-10-07 22:46:58,223 [canton-env-ec-33] INFO  c.d.c.p.s.FlywayMigrations:participant=sandbox - Running Flyway migration on empty database with 1 migrations pending...
+2025-10-07 22:46:58,235 [canton-env-ec-27] INFO  c.d.c.h.DelegatingMutableHealthComponent:domain=local/client=topology-manager - 'sequencer-client' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:46:58,238 [canton-env-ec-33] INFO  o.f.c.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.005s)
+2025-10-07 22:46:58,246 [canton-env-ec-33] INFO  o.f.c.i.s.JdbcTableSchemaHistory - Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2025-10-07 22:46:58,292 [canton-env-ec-33] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "PUBLIC": << Empty Schema >>
+2025-10-07 22:46:58,345 [canton-env-ec-27] INFO  c.d.c.d.i.TopologyManagementInitialization$:domain=local - Sending initial topology transactions to domain members Set(DOM::local::1220ea23d5cf..., MED::local::1220ea23d5cf...) as DOM::local::1220ea23d5cf...
+2025-10-07 22:46:58,386 [canton-env-ec-33] INFO  o.f.core.internal.command.DbMigrate - Migrating schema "PUBLIC" to version "1 - Append only schema"
+2025-10-07 22:46:58,431 [canton-env-ec-32] INFO  c.d.c.d.s.a.MemberAuthenticationServiceOld:domain=local - DOM::local::1220ea23d5cf... authenticated new token with expiry 2025-10-07T23:46:58.425170Z
+2025-10-07 22:46:58,527 [canton-env-ec-33] INFO  o.f.core.internal.command.DbMigrate - Successfully applied 1 migration to schema "PUBLIC", now at version v1 (execution time 00:00.239s)
+2025-10-07 22:46:58,529 [canton-env-ec-33] INFO  c.d.c.p.s.FlywayMigrations:participant=sandbox - Flyway schema migration finished successfully, applying 1 steps on empty database.
+2025-10-07 22:46:58,550 [canton-env-ec-27] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local - DOM::local::1220ea23d5cf... subscribes from counter=0
+2025-10-07 22:46:58,600 [canton-env-ec-33] INFO  c.d.c.p.i.RecoveringIndexer:participant=sandbox - Starting Indexer Server
+2025-10-07 22:46:58,667 [canton-env-ec-31] INFO  com.zaxxer.hikari.HikariDataSource - daml.index.db.connection.indexer - Starting...
+2025-10-07 22:46:58,702 [canton-env-ec-31] INFO  com.zaxxer.hikari.HikariDataSource - daml.index.db.connection.indexer - Start completed.
+2025-10-07 22:46:58,787 [canton-env-ec-31] INFO  c.d.c.p.i.p.InitializeParallelIngestion:participant=sandbox - Attempting to initialize with participant ID sandbox::1220c1e8abe4783b49cb545dd732ba9dbfe2bba3a8c254fb0785a36f4d1ea8263887
+2025-10-07 22:46:58,788 [canton-env-ec-48] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:1f9eeffdc1c3bfc4174d689fbcda6281 - 'DOM::local::1220ea23d5cf...' sends request with id '89b165d8-bdb2-4f3d-9a86-bb630463ba9b' of size 1790 bytes with 2 envelopes.
+2025-10-07 22:46:58,794 [daml.index.db.threadpool.connection.indexer-1] INFO  c.d.c.p.s.b.c.ParameterStorageBackendImpl$:participant=sandbox - Initializing new database for participantId 'sandbox::1220c1e8abe4783b49cb545dd732ba9dbfe2bba3a8c254fb0785a36f4d1ea8263887'
+2025-10-07 22:46:58,854 [canton-env-ec-48] INFO  c.d.c.p.InMemoryState:participant=sandbox - Initializing participant in-memory state to ledger end: LedgerEnd(Offset(Bytes()),0,0)
+2025-10-07 22:46:58,892 [canton-env-ec-48] INFO  c.d.c.p.i.UpdatePackageMetadataView$:participant=sandbox - Package Metadata View has been initialized (18 ms)
+2025-10-07 22:46:58,925 [canton-env-ec-32] INFO  c.d.c.d.s.s.SequencerReader$EventsReader:domain=local/subscriber=DOM::local::1220ea23d5cf tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Using approximate topology snapshot at 0001-01-01T00:00:00.000001Z for desired timestamp 2025-10-07T22:46:58.876879Z
+2025-10-07 22:46:58,934 [canton-env-ec-48] INFO  c.d.c.p.i.UpdatePackageMetadataView$:participant=sandbox - Checking loaded packages for upgrade compatibility finished after (41 ms)
+2025-10-07 22:46:58,942 [canton-env-ec-48] INFO  c.d.c.p.DispatcherState:participant=sandbox - Started a Ledger API offset dispatcher at initialization offset: Offset(Bytes()).
+2025-10-07 22:46:59,018 [canton-env-ec-31] INFO  c.d.c.s.c.SequencedEventValidatorImpl:domain=local/client=topology-manager tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Skipping signature verification of the first sequenced event due to a fresh subscription from SEQ::local::1220ea23d5cf...
+2025-10-07 22:46:59,085 [canton-env-ec-48] INFO  c.d.c.p.i.p.ParallelIndexerFactory$:participant=sandbox - Indexer initialized, indexing started.
+2025-10-07 22:46:59,087 [canton-env-ec-33] INFO  c.d.c.p.i.RecoveringIndexer:participant=sandbox - Started Indexer Server
+2025-10-07 22:46:59,092 [canton-env-ec-33] INFO  com.zaxxer.hikari.HikariDataSource - daml.index.db.connection.api-server - Starting...
+2025-10-07 22:46:59,095 [canton-env-ec-33] INFO  com.zaxxer.hikari.HikariDataSource - daml.index.db.connection.api-server - Start completed.
+2025-10-07 22:46:59,176 [input-mapping-pool-0] INFO  c.d.c.p.i.p.ParallelIndexerSubscription:participant=sandbox tid:aea0628647b7d9c36b10db85341bfb8b - Storing at offset=000000000000000001 ConfigurationChanged(
+  recordTime = 2025-10-07T22:46:56.866214Z,
+  configuration = Configuration(generation = 1, maxDeduplicationDuration = 168h, timeModel = LedgerTimeModel(avgTransactionLatency = 0s, minSkew = 8760h, maxSkew = 8760h)),
+  ...
+)
+2025-10-07 22:46:59,310 [canton-env-ec-27] INFO  c.d.c.t.p.DomainTopologyTransactionMessageValidator$Impl:domain=local/client=topology-manager tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Using approximate topology snapshot at 0001-01-01T00:00:00.000001Z for desired timestamp 2025-10-07T22:46:58.876879Z
+2025-10-07 22:46:59,313 [canton-env-ec-33] INFO  c.d.c.p.i.IndexServiceOwner:participant=sandbox - Found existing participant with ID: sandbox::1220c1e8abe4783b49cb545dd732ba9dbfe2bba3a8c254fb0785a36f4d1ea8263887`
+2025-10-07 22:46:59,360 [canton-env-ec-48] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Updated topology change delay from=0s to 0.25s
+2025-10-07 22:46:59,374 [canton-env-ec-48] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Storing topology transaction 1/6 Add NamespaceDelegation(1220ea23d5cf..., SigningPublicKey(id = 1220ea23d5cf..., format = Tink, scheme = Ed25519), true) with ts=EffectiveTime(2025-10-07T22:46:58.876879Z) (epsilon=0 ms)
+2025-10-07 22:46:59,384 [canton-env-ec-48] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Storing topology transaction 2/6 Replace DomainParametersChange(
+  local::1220ea23d5cf...,
+  DynamicDomainParameters(
+    participant response timeout = 30s,
+    mediator reaction timeout = 30s,
+    transfer exclusivity timeout = 1m,
+    topology change delay = 0.25s,
+    ledger time record time tolerance = 1m,
+    mediator deduplication timeout = 2m,
+    reconciliation interval = 1m,
+    max rate per participant = 1000000,
+    max request size = 10485760,
+    catchup config = CatchUpConfig(catchUpIntervalSkip = 5, nrIntervalsToTriggerCatchUp = 2)
+  )
+) with ts=EffectiveTime(2025-10-07T22:46:58.876879Z) (epsilon=0 ms)
+2025-10-07 22:46:59,385 [canton-env-ec-48] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Storing topology transaction 3/6 Add OwnerToKeyMapping(DOM::local::1220ea23d5cf..., SigningPublicKey(id = 1220716822a3..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:46:58.876879Z) (epsilon=0 ms)
+2025-10-07 22:46:59,390 [canton-env-ec-48] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Storing topology transaction 4/6 Add OwnerToKeyMapping(MED::local::1220ea23d5cf..., SigningPublicKey(id = 1220911e6ec0..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:46:58.876879Z) (epsilon=0 ms)
+2025-10-07 22:46:59,390 [canton-env-ec-48] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Storing topology transaction 5/6 Add MediatorDomainState(Both, local::1220ea23d5cf..., MED::local::1220ea23d5cf...) with ts=EffectiveTime(2025-10-07T22:46:58.876879Z) (epsilon=0 ms)
+2025-10-07 22:46:59,395 [canton-env-ec-48] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Storing topology transaction 6/6 Add OwnerToKeyMapping(SEQ::local::1220ea23d5cf..., SigningPublicKey(id = 12200903682e..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:46:58.876879Z) (epsilon=0 ms)
+2025-10-07 22:46:59,454 [canton-env-ec-27] INFO  c.d.c.p.a.r.MemoryCheck$:participant=sandbox - Using 'tenured' memory pool G1 Old Gen.  Setting its collection pool threshold to 2082471936
+2025-10-07 22:46:59,522 [canton-env-ec-33] INFO  c.d.c.h.MutableHealthComponent:domain=local - 'domain-topology-sender' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:46:59,543 [canton-env-ec-33] INFO  c.d.c.p.a.ApiServices$Owner:participant=sandbox - Daml-LF Engine supports LF versions: 1.14, 1.15, 1.17, 1.dev
+2025-10-07 22:46:59,569 [canton-env-ec-31] INFO  c.d.c.p.a.c.LedgerConfigurationSubscriptionFromIndex:participant=sandbox - Initial ledger configuration lookup found configuration Configuration(1,LedgerTimeModel(PT0S,PT8760H,PT8760H),PT168H) at Absolute(000000000000000001). Looking for new ledger configurations from this offset.
+2025-10-07 22:46:59,666 [canton-env-ec-48] INFO  c.d.c.s.c.SequencerClientImpl:domain=local/client=mediator - No event found up to 0001-01-01T00:00:00Z. Resubscribing from the beginning.
+2025-10-07 22:46:59,667 [canton-env-ec-48] INFO  c.d.c.s.c.SequencerClientImpl:domain=local/client=mediator - Processing events from the SequencedEventStore from 0001-01-01T00:00:00.000001Z on
+2025-10-07 22:46:59,671 [canton-env-ec-48] INFO  c.d.c.s.c.SequencerClientImpl:domain=local/client=mediator - Starting subscription for alias=SEQ::local::1220ea23d5cf... at timestamp None; next counter 0
+2025-10-07 22:46:59,672 [canton-env-ec-48] INFO  c.d.c.h.DelegatingMutableHealthComponent:domain=local/client=mediator - 'sequencer-client' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:46:59,729 [canton-env-ec-48] INFO  c.d.c.d.s.a.MemberAuthenticationServiceOld:domain=local - MED::local::1220ea23d5cf... authenticated new token with expiry 2025-10-07T23:46:59.729268Z
+2025-10-07 22:46:59,742 [canton-env-ec-48] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local - MED::local::1220ea23d5cf... subscribes from counter=0
+2025-10-07 22:46:59,774 [canton-env-ec-33] INFO  c.d.c.s.c.SequencedEventValidatorImpl:domain=local/client=mediator tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Skipping signature verification of the first sequenced event due to a fresh subscription from SEQ::local::1220ea23d5cf...
+2025-10-07 22:46:59,792 [canton-env-ec-32] INFO  c.d.c.d.m.Mediator:domain=local/node=mediator tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Caught up with batch with counter=0 with sequencer with 916 ms delay
+2025-10-07 22:46:59,796 [canton-env-ec-32] INFO  c.d.c.t.p.DomainTopologyTransactionMessageValidator$Impl:domain=local/node=mediator/client=mediator tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Using approximate topology snapshot at 0001-01-01T00:00:00.000001Z for desired timestamp 2025-10-07T22:46:58.876879Z
+2025-10-07 22:46:59,841 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Updated topology change delay from=0s to 0.25s
+2025-10-07 22:46:59,845 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Storing topology transaction 1/6 Add NamespaceDelegation(1220ea23d5cf..., SigningPublicKey(id = 1220ea23d5cf..., format = Tink, scheme = Ed25519), true) with ts=EffectiveTime(2025-10-07T22:46:58.876879Z) (epsilon=0 ms)
+2025-10-07 22:46:59,853 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Storing topology transaction 2/6 Replace DomainParametersChange(
+  local::1220ea23d5cf...,
+  DynamicDomainParameters(
+    participant response timeout = 30s,
+    mediator reaction timeout = 30s,
+    transfer exclusivity timeout = 1m,
+    topology change delay = 0.25s,
+    ledger time record time tolerance = 1m,
+    mediator deduplication timeout = 2m,
+    reconciliation interval = 1m,
+    max rate per participant = 1000000,
+    max request size = 10485760,
+    catchup config = CatchUpConfig(catchUpIntervalSkip = 5, nrIntervalsToTriggerCatchUp = 2)
+  )
+) with ts=EffectiveTime(2025-10-07T22:46:58.876879Z) (epsilon=0 ms)
+2025-10-07 22:46:59,856 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Storing topology transaction 3/6 Add OwnerToKeyMapping(DOM::local::1220ea23d5cf..., SigningPublicKey(id = 1220716822a3..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:46:58.876879Z) (epsilon=0 ms)
+2025-10-07 22:46:59,857 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Storing topology transaction 4/6 Add OwnerToKeyMapping(MED::local::1220ea23d5cf..., SigningPublicKey(id = 1220911e6ec0..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:46:58.876879Z) (epsilon=0 ms)
+2025-10-07 22:46:59,858 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Storing topology transaction 5/6 Add MediatorDomainState(Both, local::1220ea23d5cf..., MED::local::1220ea23d5cf...) with ts=EffectiveTime(2025-10-07T22:46:58.876879Z) (epsilon=0 ms)
+2025-10-07 22:46:59,859 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:1f9eeffdc1c3bfc4174d689fbcda6281 - Storing topology transaction 6/6 Add OwnerToKeyMapping(SEQ::local::1220ea23d5cf..., SigningPublicKey(id = 12200903682e..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:46:58.876879Z) (epsilon=0 ms)
+2025-10-07 22:47:00,209 [canton-env-ec-31] INFO  c.d.c.p.a.LedgerApiService:participant=sandbox - Listening on 127.0.0.1:6865 over plain text with LedgerApiKeepAliveServerConfig(10m,20s,10s,true).
+2025-10-07 22:47:00,211 [canton-env-ec-27] INFO  c.d.c.p.a.ApiServiceOwner$:participant=sandbox - Initialized API server version {component version not found on classpath} with ledger-id = sandbox, port = 6865.
+2025-10-07 22:47:00,255 [canton-env-ec-31] INFO  c.d.c.p.a.s.ApiLedgerIdentityService:participant=sandbox tid:51ac68494eeff1c28da53d61553a0b51 - Received request for ledger identity: GetLedgerIdentityRequest().
+2025-10-07 22:47:02,468 [canton-env-ec-27] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:19807725ead33b323bec7c4ec467718a - Received request for a package status: GetPackageStatusRequest(sandbox,5921708ce82f4255deb1b26d2c05358b548720938a5a325718dc69f381ba47ff), packageId -> '5921708ce82f4255deb1b26d2c05358b548720938a5a325718dc69f381ba47ff'.
+2025-10-07 22:47:02,470 [canton-env-ec-48] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:2280da8720429d584855215cd7c829b2 - Received request for a package status: GetPackageStatusRequest(sandbox,18597917bc74b69da52b6868f118979353b62ebec4363329cd3d843b46e76702), packageId -> '18597917bc74b69da52b6868f118979353b62ebec4363329cd3d843b46e76702'.
+2025-10-07 22:47:02,470 [canton-env-ec-33] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:91d27d73de8d5e2857b552e063af00b1 - Received request for a package status: GetPackageStatusRequest(sandbox,86828b9843465f419db1ef8a8ee741d1eef645df02375ebf509cdc8c3ddd16cb), packageId -> '86828b9843465f419db1ef8a8ee741d1eef645df02375ebf509cdc8c3ddd16cb'.
+2025-10-07 22:47:02,477 [canton-env-ec-77] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:00baab06005fa489e302d207317aa970 - Received request for a package status: GetPackageStatusRequest(sandbox,e22bce619ae24ca3b8e6519281cb5a33b64b3190cc763248b4c3f9ad5087a92c), packageId -> 'e22bce619ae24ca3b8e6519281cb5a33b64b3190cc763248b4c3f9ad5087a92c'.
+2025-10-07 22:47:02,481 [canton-env-ec-76] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:51017d722f3d4bf024c050bf592cc2a7 - Received request for a package status: GetPackageStatusRequest(sandbox,d58cf9939847921b2aab78eaa7b427dc4c649d25e6bee3c749ace4c3f52f5c97), packageId -> 'd58cf9939847921b2aab78eaa7b427dc4c649d25e6bee3c749ace4c3f52f5c97'.
+2025-10-07 22:47:02,487 [canton-env-ec-47] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:e35983062300da5ed016b28d9102cb82 - Received request for a package status: GetPackageStatusRequest(sandbox,99a2705ed38c1c26cbb8fe7acf36bbf626668e167a33335de932599219e0a235), packageId -> '99a2705ed38c1c26cbb8fe7acf36bbf626668e167a33335de932599219e0a235'.
+2025-10-07 22:47:02,490 [canton-env-ec-27] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:6e8f0233967200bd462c758352c77b69 - Received request for a package status: GetPackageStatusRequest(sandbox,6c2c0667393c5f92f1885163068cd31800d2264eb088eb6fc740e11241b2bf06), packageId -> '6c2c0667393c5f92f1885163068cd31800d2264eb088eb6fc740e11241b2bf06'.
+2025-10-07 22:47:02,488 [canton-env-ec-31] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:17be8e8b161e4f5b3db78d78cd894daa - Received request for a package status: GetPackageStatusRequest(sandbox,cc348d369011362a5190fe96dd1f0dfbc697fdfd10e382b9e9666f0da05961b7), packageId -> 'cc348d369011362a5190fe96dd1f0dfbc697fdfd10e382b9e9666f0da05961b7'.
+2025-10-07 22:47:02,508 [canton-env-ec-48] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:7fdcc6ab323847509e4beb551bf8c6c9 - Received request for a package status: GetPackageStatusRequest(sandbox,8a7806365bbd98d88b4c13832ebfa305f6abaeaf32cfa2b7dd25c4fa489b79fb), packageId -> '8a7806365bbd98d88b4c13832ebfa305f6abaeaf32cfa2b7dd25c4fa489b79fb'.
+2025-10-07 22:47:02,508 [canton-env-ec-48] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:cd882a4976f6333a6775c77773aea47f - Received request for a package status: GetPackageStatusRequest(sandbox,c1f1f00558799eec139fb4f4c76f95fb52fa1837a5dd29600baa1c8ed1bdccfd), packageId -> 'c1f1f00558799eec139fb4f4c76f95fb52fa1837a5dd29600baa1c8ed1bdccfd'.
+2025-10-07 22:47:02,510 [canton-env-ec-79] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:ec7915f8fc60421cc4b57df3c2726c7a - Received request for a package status: GetPackageStatusRequest(sandbox,733e38d36a2759688a4b2c4cec69d48e7b55ecc8dedc8067b815926c917a182a), packageId -> '733e38d36a2759688a4b2c4cec69d48e7b55ecc8dedc8067b815926c917a182a'.
+2025-10-07 22:47:02,512 [canton-env-ec-27] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:e97d8d09ccf23b9d30faeddc99b7e685 - Received request for a package status: GetPackageStatusRequest(sandbox,1cc0ce9df7722b71fdfd172e9684c4855a7946a4a6933e784c7d9de8fac081c9), packageId -> '1cc0ce9df7722b71fdfd172e9684c4855a7946a4a6933e784c7d9de8fac081c9'.
+2025-10-07 22:47:02,513 [canton-env-ec-47] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:6173a1d9ebd1663d687409fcda44134e - Received request for a package status: GetPackageStatusRequest(sandbox,e8b3e0650dc0245a4a42133eb3b71b2ac7c3e03f25ee4df378b8089210a1bb6d), packageId -> 'e8b3e0650dc0245a4a42133eb3b71b2ac7c3e03f25ee4df378b8089210a1bb6d'.
+2025-10-07 22:47:02,518 [canton-env-ec-47] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:24abe0296b197adf3746fa74f0d44036 - Received request for a package status: GetPackageStatusRequest(sandbox,bfcd37bd6b84768e86e432f5f6c33e25d9e7724a9d42e33875ff74f6348e733f), packageId -> 'bfcd37bd6b84768e86e432f5f6c33e25d9e7724a9d42e33875ff74f6348e733f'.
+2025-10-07 22:47:02,520 [canton-env-ec-27] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:38f1c5a89a8b931e194081ab962ee7da - Received request for a package status: GetPackageStatusRequest(sandbox,65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e), packageId -> '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e'.
+2025-10-07 22:47:02,521 [canton-env-ec-27] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:65e32a19a4ae9bc1da9aa6bf0f6ed073 - Received request for a package status: GetPackageStatusRequest(sandbox,f20de1e4e37b92280264c08bf15eca0be0bc5babd7a7b5e574997f154c00cb78), packageId -> 'f20de1e4e37b92280264c08bf15eca0be0bc5babd7a7b5e574997f154c00cb78'.
+2025-10-07 22:47:02,524 [canton-env-ec-48] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:f9cb8cba9f5af4075b74ed53886dd08d - Received request for a package status: GetPackageStatusRequest(sandbox,e4cc67c3264eba4a19c080cac5ab32d87551578e0f5f58b6a9460f91c7abc254), packageId -> 'e4cc67c3264eba4a19c080cac5ab32d87551578e0f5f58b6a9460f91c7abc254'.
+2025-10-07 22:47:02,522 [canton-env-ec-47] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:7020424467ed8570c66222109cf92036 - Received request for a package status: GetPackageStatusRequest(sandbox,3f4deaf145a15cdcfa762c058005e2edb9baa75bb7f95a4f8f6f937378e86415), packageId -> '3f4deaf145a15cdcfa762c058005e2edb9baa75bb7f95a4f8f6f937378e86415'.
+2025-10-07 22:47:02,536 [canton-env-ec-31] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:edab530af9d5265b5b457b80b3cdd105 - Received request for a package status: GetPackageStatusRequest(sandbox,518032f41fd0175461b35ae0c9691e08b4aea55e62915f8360af2cc7a1f2ba6c), packageId -> '518032f41fd0175461b35ae0c9691e08b4aea55e62915f8360af2cc7a1f2ba6c'.
+2025-10-07 22:47:02,536 [canton-env-ec-79] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:ba29708c59a92af2f775c29d6565d9e0 - Received request for a package status: GetPackageStatusRequest(sandbox,57b5c520512c24035057aa4c783cb7ac7f3f49db29806280962e188be7aadb66), packageId -> '57b5c520512c24035057aa4c783cb7ac7f3f49db29806280962e188be7aadb66'.
+2025-10-07 22:47:02,537 [canton-env-ec-79] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:680a857d6d378bc1764aa05b18946c86 - Received request for a package status: GetPackageStatusRequest(sandbox,852d8e3a8ccf952acc73e17522846bc1eb41498e840d637e519ddcca7dbc7671), packageId -> '852d8e3a8ccf952acc73e17522846bc1eb41498e840d637e519ddcca7dbc7671'.
+2025-10-07 22:47:02,539 [canton-env-ec-77] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:dfc040627752c720ca6182433219b8ab - Received request for a package status: GetPackageStatusRequest(sandbox,76bf0fd12bd945762a01f8fc5bbcdfa4d0ff20f8762af490f8f41d6237c6524f), packageId -> '76bf0fd12bd945762a01f8fc5bbcdfa4d0ff20f8762af490f8f41d6237c6524f'.
+2025-10-07 22:47:02,540 [canton-env-ec-77] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:316bbc347ba1f09c7da327ce5be0f7ae - Received request for a package status: GetPackageStatusRequest(sandbox,38e6274601b21d7202bb995bc5ec147decda5a01b68d57dda422425038772af7), packageId -> '38e6274601b21d7202bb995bc5ec147decda5a01b68d57dda422425038772af7'.
+2025-10-07 22:47:02,543 [canton-env-ec-77] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:cc0c9ae1dc9aaf1be0ec7f2e30d56487 - Received request for a package status: GetPackageStatusRequest(sandbox,6839a6d3d430c569b2425e9391717b44ca324b88ba621d597778811b2d05031d), packageId -> '6839a6d3d430c569b2425e9391717b44ca324b88ba621d597778811b2d05031d'.
+2025-10-07 22:47:02,545 [canton-env-ec-77] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:108299a5ac97c0866da9c2b6b6c7f1e2 - Received request for a package status: GetPackageStatusRequest(sandbox,40f452260bef3f29dede136108fc08a88d5a5250310281067087da6f0baddff7), packageId -> '40f452260bef3f29dede136108fc08a88d5a5250310281067087da6f0baddff7'.
+2025-10-07 22:47:02,546 [canton-env-ec-27] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:3bab02dfb19eb7e1a988394bf3f7f89c - Received request for a package status: GetPackageStatusRequest(sandbox,cb0552debf219cc909f51cbb5c3b41e9981d39f8f645b1f35e2ef5be2e0b858a), packageId -> 'cb0552debf219cc909f51cbb5c3b41e9981d39f8f645b1f35e2ef5be2e0b858a'.
+2025-10-07 22:47:02,547 [canton-env-ec-27] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:afe64e6d803a74d2c5e9112cbb4d37db - Received request for a package status: GetPackageStatusRequest(sandbox,97b883cd8a2b7f49f90d5d39c981cf6e110cf1f1c64427a28a6d58ec88c43657), packageId -> '97b883cd8a2b7f49f90d5d39c981cf6e110cf1f1c64427a28a6d58ec88c43657'.
+2025-10-07 22:47:02,549 [canton-env-ec-27] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:d1483e41e4cd4adbbeacdf7d6d760e83 - Received request for a package status: GetPackageStatusRequest(sandbox,d14e08374fc7197d6a0de468c968ae8ba3aadbf9315476fd39071831f5923662), packageId -> 'd14e08374fc7197d6a0de468c968ae8ba3aadbf9315476fd39071831f5923662'.
+2025-10-07 22:47:02,550 [canton-env-ec-79] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:369e8a69ca9170a31292430c362519b6 - Received request for a package status: GetPackageStatusRequest(sandbox,e491352788e56ca4603acc411ffe1a49fefd76ed8b163af86cf5ee5f4c38645b), packageId -> 'e491352788e56ca4603acc411ffe1a49fefd76ed8b163af86cf5ee5f4c38645b'.
+2025-10-07 22:47:02,552 [canton-env-ec-47] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:48924fafcb059b6922ea8adc266feb40 - Received request for a package status: GetPackageStatusRequest(sandbox,057eed1fd48c238491b8ea06b9b5bf85a5d4c9275dd3f6183e0e6b01730cc2ba), packageId -> '057eed1fd48c238491b8ea06b9b5bf85a5d4c9275dd3f6183e0e6b01730cc2ba'.
+2025-10-07 22:47:02,558 [canton-env-ec-31] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:1b6ad2f0235563b817e8660559a89a26 - Received request for a package status: GetPackageStatusRequest(sandbox,10e0333b52bba1ff147fc408a6b7d68465b157635ee230493bd6029b750dcb05), packageId -> '10e0333b52bba1ff147fc408a6b7d68465b157635ee230493bd6029b750dcb05'.
+2025-10-07 22:47:02,546 [canton-env-ec-48] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:48cfdb5a650a7e56a1a84b6937b43370 - Received request for a package status: GetPackageStatusRequest(sandbox,6851f194e144b693e63e9034b956c76cef6b5088dd8c66a657ab652a204dba2b), packageId -> '6851f194e144b693e63e9034b956c76cef6b5088dd8c66a657ab652a204dba2b'.
+2025-10-07 22:47:05,588 [input-mapping-pool-1] INFO  c.d.c.p.i.p.ParallelIndexerSubscription:participant=sandbox tid:c4ee08bc2f1519df8bed21168f82b774 - Storing at offset=000000000000000002 PublicPackageUpload(
+  recordTime = 2025-10-07T22:47:05.563459Z,
+  archives = Seq(
+    1cc0ce9df772...,
+    65921e553a35...,
+    6851f194e144...,
+    57b5c520512c...,
+    cb0552debf21...,
+    3f4deaf145a1...,
+    86828b984346...,
+    f20de1e4e37b...,
+    76bf0fd12bd9...,
+    38e6274601b2...,
+    d58cf9939847...,
+    40f452260bef...,
+    e491352788e5...,
+    6839a6d3d430...,
+    518032f41fd0...,
+    e8b3e0650dc0...,
+    18597917bc74...,
+    852d8e3a8ccf...,
+    10e0333b52bb...,
+    bfcd37bd6b84...,
+    cc348d369011...,
+    057eed1fd48c...,
+    d14e08374fc7...,
+    c1f1f0055879...,
+    6c2c0667393c...,
+    e22bce619ae2...,
+    e4cc67c3264e...,
+    8a7806365bbd...,
+    97b883cd8a2b...,
+    5921708ce82f...,
+    733e38d36a27...,
+    99a2705ed38c...
+  ),
+  sourceDescription = 'AdminWorkflowsWithVacuuming'
+)
+2025-10-07 22:47:06,876 [canton-env-ec-79] INFO  c.d.c.p.t.ParticipantTopologyManager:participant=sandbox tid:c4ee08bc2f1519df8bed21168f82b774 - Applied topology transaction Add VettedPackages(
+  participant = sandbox::1220c1e8abe4...,
+  packages = Seq(
+    1cc0ce9df772...,
+    65921e553a35...,
+    6851f194e144...,
+    57b5c520512c...,
+    cb0552debf21...,
+    3f4deaf145a1...,
+    86828b984346...,
+    f20de1e4e37b...,
+    76bf0fd12bd9...,
+    38e6274601b2...,
+    d58cf9939847...,
+    40f452260bef...,
+    e491352788e5...,
+    6839a6d3d430...,
+    518032f41fd0...,
+    e8b3e0650dc0...,
+    18597917bc74...,
+    852d8e3a8ccf...,
+    10e0333b52bb...,
+    bfcd37bd6b84...,
+    cc348d369011...,
+    057eed1fd48c...,
+    d14e08374fc7...,
+    c1f1f0055879...,
+    6c2c0667393c...,
+    e22bce619ae2...,
+    e4cc67c3264e...,
+    8a7806365bbd...,
+    97b883cd8a2b...,
+    5921708ce82f...,
+    733e38d36a27...,
+    99a2705ed38c...
+  )
+) at 2025-10-07T22:47:06.874668Z
+2025-10-07 22:47:06,938 [canton-env-ec-27] INFO  c.d.c.p.a.s.ApiLedgerIdentityService:participant=sandbox tid:e1f25457f0986baf076c22d8870f5723 - Received request for ledger identity: GetLedgerIdentityRequest().
+2025-10-07 22:47:06,977 [canton-env-ec-48] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:d4abb8ce1fc271f9e0847053ae0f50f2 - Received request for a package status: GetPackageStatusRequest(sandbox,65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e), packageId -> '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e'.
+2025-10-07 22:47:06,983 [canton-env-ec-31] INFO  c.d.c.p.a.PingService:participant=sandbox - The operation 'wait-for-admin-workflows-to-appear-on-ledger-api' was not successful. New kind of error: no success error (request infinite retries). Retrying after 0.1s. Result: Outcome(false). 
+2025-10-07 22:47:07,105 [canton-env-ec-79] INFO  c.d.c.p.a.PingService:participant=sandbox - Now retrying operation 'wait-for-admin-workflows-to-appear-on-ledger-api'. 
+2025-10-07 22:47:07,118 [canton-env-ec-48] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:c3a17a0dcbe33239b27f31c775666f8f - Received request for a package status: GetPackageStatusRequest(sandbox,65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e), packageId -> '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e'.
+2025-10-07 22:47:07,126 [canton-env-ec-27] INFO  c.d.c.p.a.PingService:participant=sandbox - The operation 'wait-for-admin-workflows-to-appear-on-ledger-api' was not successful. Retrying after 0.185s. Result: Outcome(false). 
+2025-10-07 22:47:07,171 [canton-env-ec-77] INFO  c.d.c.p.a.s.t.TransactionServiceImpl:participant=sandbox tid:dd7579cb0ade186191e66cf71478bccc - Received request for transactions, startExclusive -> '000000000000000001', endInclusive -> , filters -> {sandbox::1220c1e8abe4783b49cb545dd732ba9dbfe2bba3a8c254fb0785a36f4d1ea8263887: 'all-templates'}, verbose -> false, ledgerId -> 'sandbox'.
+2025-10-07 22:47:07,312 [canton-env-ec-31] INFO  c.d.c.p.a.PingService:participant=sandbox - Now retrying operation 'wait-for-admin-workflows-to-appear-on-ledger-api'. 
+2025-10-07 22:47:07,337 [canton-env-ec-77] INFO  c.d.c.p.a.s.ApiPackageService:participant=sandbox tid:8569ca12b06fdf6e500fb4457a4e5e98 - Received request for a package status: GetPackageStatusRequest(sandbox,65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e), packageId -> '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e'.
+2025-10-07 22:47:07,352 [canton-env-ec-27] INFO  c.d.c.p.t.ParticipantTopologyManager:participant=sandbox tid:3c5544f9125d9a475ef740818a818c73 - Applied topology transaction Add OwnerToKeyMapping(PAR::sandbox::1220c1e8abe4..., SigningPublicKey(id = 1220b7f6ab46..., format = Tink, scheme = Ed25519)) at 2025-10-07T22:47:07.352328Z
+2025-10-07 22:47:07,362 [canton-env-ec-77] INFO  c.d.c.p.t.ParticipantTopologyManager:participant=sandbox tid:3c5544f9125d9a475ef740818a818c73 - Applied topology transaction Add OwnerToKeyMapping(PAR::sandbox::1220c1e8abe4..., EncryptionPublicKey(id = 12208b271e68..., format = Tink, scheme = ECIES-P256_HMAC256_AES128-GCM)) at 2025-10-07T22:47:07.361843Z
+2025-10-07 22:47:07,363 [canton-env-ec-32] INFO  c.d.c.p.ParticipantNodeBootstrap:participant=sandbox - Initializing node with id NodeId(sandbox::1220c1e8abe4...)
+2025-10-07 22:47:07,368 [canton-env-ec-47] INFO  c.d.c.p.s.CantonSyncService:participant=sandbox tid:5df2a199d3266c5bf55d7da1e86ce13e - Reconnecting to domains List(). Already connected: Set()
+2025-10-07 22:47:07,373 [canton-env-ec-47] INFO  c.d.c.p.s.CantonSyncService:participant=sandbox tid:5df2a199d3266c5bf55d7da1e86ce13e - Successfully re-connected to domains List()
+2025-10-07 22:47:07,378 [main] INFO  c.d.c.e.CommunityEnvironment - Auto-connecting local participants List(sandbox) to local domains List(local)
+2025-10-07 22:47:07,468 [canton-env-ec-27] INFO  c.d.c.c.d.g.SequencerInfoLoader:participant=sandbox - Version handshake with sequencer Sequencer 'DefaultSequencer' and domain using protocol version 7 succeeded.
+2025-10-07 22:47:07,590 [canton-env-ec-32] INFO  c.d.c.p.t.ParticipantTopologyManager:participant=sandbox - Applied topology transaction Add ParticipantState(To, local::1220ea23d5cf..., PAR::sandbox::1220c1e8abe4..., Submission, Ordinary) at 2025-10-07T22:47:07.590163Z
+2025-10-07 22:47:07,663 [canton-env-ec-32] INFO  c.d.c.s.c.SequencerClientImpl:participant=sandbox/domainId=local::1220ea23d5cf - No event found up to 0001-01-01T00:00:00Z. Resubscribing from the beginning.
+2025-10-07 22:47:07,663 [canton-env-ec-32] INFO  c.d.c.s.c.SequencerClientImpl:participant=sandbox/domainId=local::1220ea23d5cf - Processing events from the SequencedEventStore from 0001-01-01T00:00:00.000001Z on
+2025-10-07 22:47:07,665 [canton-env-ec-77] INFO  c.d.c.s.c.SequencerClientImpl:participant=sandbox/domainId=local::1220ea23d5cf - Starting subscription for alias=SEQ::local::1220ea23d5cf... at timestamp None; next counter 0
+2025-10-07 22:47:07,666 [canton-env-ec-77] INFO  c.d.c.h.DelegatingMutableHealthComponent:participant=sandbox/domainId=local::1220ea23d5cf - 'sequencer-client' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:47:07,675 [canton-env-ec-32] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local - UNM::8cd2ded5f2d3b54e62038d69c66fbecb234782d5::1220c1e8abe4... subscribes from counter=0
+2025-10-07 22:47:07,740 [canton-env-ec-47] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:46b729ac9c83da5b033aaf1c8496186c - 'UNM::8cd2ded5f2d3b54e62038d69c66fbecb234782d5::1220c1e8abe4...' sends request with id '949e213c-6bb4-46fa-b56b-c6636a770884' of size 1424 bytes with 1 envelopes.
+2025-10-07 22:47:07,763 [canton-env-ec-32] INFO  c.d.c.d.s.s.SequencerReader$EventsReader:domain=local/subscriber=UNM::8cd2ded5f2d3b54e62038d69c66fbecb234782d5::1220c1e8abe4 tid:46b729ac9c83da5b033aaf1c8496186c - Using approximate topology snapshot at 2025-10-07T22:46:58.876880Z for desired timestamp 2025-10-07T22:47:07.748995Z
+2025-10-07 22:47:07,851 [canton-env-ec-32] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:46b729ac9c83da5b033aaf1c8496186c - Applied topology transaction Add NamespaceDelegation(1220c1e8abe4..., SigningPublicKey(id = 1220c1e8abe4..., format = Tink, scheme = Ed25519), true) at 2025-10-07T22:47:07.849958Z
+2025-10-07 22:47:07,865 [canton-env-ec-31] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:46b729ac9c83da5b033aaf1c8496186c - Applied topology transaction Add OwnerToKeyMapping(PAR::sandbox::1220c1e8abe4..., SigningPublicKey(id = 1220b7f6ab46..., format = Tink, scheme = Ed25519)) at 2025-10-07T22:47:07.864751Z
+2025-10-07 22:47:07,868 [canton-env-ec-47] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:46b729ac9c83da5b033aaf1c8496186c - Applied topology transaction Add OwnerToKeyMapping(PAR::sandbox::1220c1e8abe4..., EncryptionPublicKey(id = 12208b271e68..., format = Tink, scheme = ECIES-P256_HMAC256_AES128-GCM)) at 2025-10-07T22:47:07.867755Z
+2025-10-07 22:47:07,890 [canton-env-ec-32] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:46b729ac9c83da5b033aaf1c8496186c - Setting participant PAR::sandbox::1220c1e8abe4... state to ParticipantAttributes(Submission,Ordinary)
+2025-10-07 22:47:07,892 [canton-env-ec-32] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:46b729ac9c83da5b033aaf1c8496186c - Applied topology transaction Add ParticipantState(From, local::1220ea23d5cf..., PAR::sandbox::1220c1e8abe4..., Submission, Ordinary) at 2025-10-07T22:47:07.889750Z
+2025-10-07 22:47:07,899 [canton-env-ec-77] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:46b729ac9c83da5b033aaf1c8496186c - 'DOM::local::1220ea23d5cf...' sends request with id '52f555fa-89dd-4b8b-9c78-c94c7a892832' of size 916 bytes with 1 envelopes.
+2025-10-07 22:47:07,904 [canton-env-ec-47] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:46b729ac9c83da5b033aaf1c8496186c - Applied topology transaction Add ParticipantState(To, local::1220ea23d5cf..., PAR::sandbox::1220c1e8abe4..., Submission, Ordinary) at 2025-10-07T22:47:07.904295Z
+2025-10-07 22:47:07,906 [canton-env-ec-47] INFO  c.d.c.d.t.RequestProcessingStrategy$Impl:domain=local tid:46b729ac9c83da5b033aaf1c8496186c - Successfully onboarded PAR::sandbox::1220c1e8abe4...
+2025-10-07 22:47:07,922 [canton-env-ec-47] INFO  c.d.c.d.t.DomainTopologyManagerRequestService:domain=local tid:46b729ac9c83da5b033aaf1c8496186c - Register topology request by UNM::8cd2ded5f2d3b54e62038d69c66fbecb234782d5::1220c1e8abe4... for PAR::sandbox::1220c1e8abe4... yielded
+  Accepted -> Add NamespaceDelegation(1220c1e8abe4..., SigningPublicKey(id = 1220c1e8abe4..., format = Tink, scheme = Ed25519), true)
+  Accepted -> Add OwnerToKeyMapping(PAR::sandbox::1220c1e8abe4..., SigningPublicKey(id = 1220b7f6ab46..., format = Tink, scheme = Ed25519))
+  Accepted -> Add OwnerToKeyMapping(PAR::sandbox::1220c1e8abe4..., EncryptionPublicKey(id = 12208b271e68..., format = Tink, scheme = ECIES-P256_HMAC256_AES128-GCM))
+  Accepted -> Add ParticipantState(To, local::1220ea23d5cf..., PAR::sandbox::1220c1e8abe4..., Submission, Ordinary)
+2025-10-07 22:47:07,958 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 1/1 Add NamespaceDelegation(1220c1e8abe4..., SigningPublicKey(id = 1220c1e8abe4..., format = Tink, scheme = Ed25519), true) with ts=EffectiveTime(2025-10-07T22:47:08.160847Z) (epsilon=250 ms)
+2025-10-07 22:47:07,960 [canton-env-ec-79] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 1/1 Add NamespaceDelegation(1220c1e8abe4..., SigningPublicKey(id = 1220c1e8abe4..., format = Tink, scheme = Ed25519), true) with ts=EffectiveTime(2025-10-07T22:47:08.160847Z) (epsilon=250 ms)
+2025-10-07 22:47:07,982 [canton-env-ec-48] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:46b729ac9c83da5b033aaf1c8496186c - 'DOM::local::1220ea23d5cf...' sends request with id '41f67171-631e-4362-bbad-fcccf43f4602' of size 1554 bytes with 1 envelopes.
+2025-10-07 22:47:07,983 [canton-env-ec-27] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:46b729ac9c83da5b033aaf1c8496186c - 'DOM::local::1220ea23d5cf...' sends request with id '719b2cb8-3eec-4e1c-8cb6-02c0e8098768' of size 550 bytes with 1 envelopes.
+2025-10-07 22:47:08,031 [canton-env-ec-47] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 1/3 Add OwnerToKeyMapping(PAR::sandbox::1220c1e8abe4..., SigningPublicKey(id = 1220b7f6ab46..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:47:08.238913Z) (epsilon=250 ms)
+2025-10-07 22:47:08,032 [canton-env-ec-47] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 2/3 Add OwnerToKeyMapping(PAR::sandbox::1220c1e8abe4..., EncryptionPublicKey(id = 12208b271e68..., format = Tink, scheme = ECIES-P256_HMAC256_AES128-GCM)) with ts=EffectiveTime(2025-10-07T22:47:08.238913Z) (epsilon=250 ms)
+2025-10-07 22:47:08,033 [canton-env-ec-47] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 3/3 Add ParticipantState(From, local::1220ea23d5cf..., PAR::sandbox::1220c1e8abe4..., Submission, Ordinary) with ts=EffectiveTime(2025-10-07T22:47:08.238913Z) (epsilon=250 ms)
+2025-10-07 22:47:08,041 [canton-env-ec-79] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 1/3 Add OwnerToKeyMapping(PAR::sandbox::1220c1e8abe4..., SigningPublicKey(id = 1220b7f6ab46..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:47:08.238913Z) (epsilon=250 ms)
+2025-10-07 22:47:08,042 [canton-env-ec-79] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 2/3 Add OwnerToKeyMapping(PAR::sandbox::1220c1e8abe4..., EncryptionPublicKey(id = 12208b271e68..., format = Tink, scheme = ECIES-P256_HMAC256_AES128-GCM)) with ts=EffectiveTime(2025-10-07T22:47:08.238913Z) (epsilon=250 ms)
+2025-10-07 22:47:08,042 [canton-env-ec-79] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 3/3 Add ParticipantState(From, local::1220ea23d5cf..., PAR::sandbox::1220c1e8abe4..., Submission, Ordinary) with ts=EffectiveTime(2025-10-07T22:47:08.238913Z) (epsilon=250 ms)
+2025-10-07 22:47:08,055 [canton-env-ec-27] INFO  c.d.c.d.t.MemberTopologyCatchup:domain=local/identity tid:46b729ac9c83da5b033aaf1c8496186c - Participant PAR::sandbox::1220c1e8abe4... is changing from None to Some(Submission), requires to catch up 10
+2025-10-07 22:47:08,064 [canton-env-ec-32] INFO  c.d.c.s.c.ResilientSequencerSubscription:participant=sandbox/domainId=local::1220ea23d5cf - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:47:08,068 [canton-env-ec-32] INFO  c.d.c.h.DelegatingMutableHealthComponent:participant=sandbox/domainId=local::1220ea23d5cf - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:47:08,071 [canton-env-ec-79] INFO  c.d.c.s.c.t.GrpcSequencerSubscription:participant=sandbox/domainId=local::1220ea23d5cf - GRPC subscription successfully closed due to client shutdown.
+2025-10-07 22:47:08,074 [canton-env-ec-79] INFO  c.d.c.n.g.ApiRequestLogger:domain=local tid:6e522907b22403424900a73634b8fe13 - Request c.d.c.d.a.v.SequencerService/SubscribeUnauthenticatedVersioned by /127.0.0.1:51050: cancelled. Cancellations can be caused by timeouts, explicit cancellation by the client, network errors, etc.
+2025-10-07 22:47:08,078 [canton-env-ec-48] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:46b729ac9c83da5b033aaf1c8496186c - 'DOM::local::1220ea23d5cf...' sends request with id 'c88fca2a-82e6-4946-96b4-3e00ddbae5c3' of size 2653 bytes with 1 envelopes.
+2025-10-07 22:47:08,111 [canton-env-ec-77] INFO  c.d.c.c.d.g.GrpcSequencerConnectClient:participant=sandbox - The operation 'verify active' was not successful. New kind of error: no success error (request infinite retries). Retrying after 0.5s. Result: Right(false). 
+2025-10-07 22:47:08,126 [canton-env-ec-27] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:46b729ac9c83da5b033aaf1c8496186c - 'DOM::local::1220ea23d5cf...' sends request with id '7152a11a-421e-43a2-8fc0-123c3a2edfc4' of size 936 bytes with 1 envelopes.
+2025-10-07 22:47:08,162 [canton-env-ec-32] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 1/1 Add ParticipantState(To, local::1220ea23d5cf..., PAR::sandbox::1220c1e8abe4..., Submission, Ordinary) with ts=EffectiveTime(2025-10-07T22:47:08.385001Z) (epsilon=250 ms)
+2025-10-07 22:47:08,163 [canton-env-ec-79] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 1/1 Add ParticipantState(To, local::1220ea23d5cf..., PAR::sandbox::1220c1e8abe4..., Submission, Ordinary) with ts=EffectiveTime(2025-10-07T22:47:08.385001Z) (epsilon=250 ms)
+2025-10-07 22:47:08,612 [canton-env-ec-32] INFO  c.d.c.c.d.g.GrpcSequencerConnectClient:participant=sandbox - Now retrying operation 'verify active'. 
+2025-10-07 22:47:08,651 [canton-env-ec-27] INFO  c.d.c.p.s.SyncDomainEphemeralStateFactoryImpl:participant=sandbox - Computed starting points: ProcessingStartingPoints(
+  clean replay = MessageCleanReplayStartingPoint(next request counter = 0, next sequencer counter = 0, prenext timestamp = 0001-01-01T00:00:00Z),
+  processing = MessageProcessingStartingPoint(next request counter = 0, next sequencer counter = 0, prenext timestamp = 0001-01-01T00:00:00Z),
+  rewound sequencer counter prehead = None()
+)
+2025-10-07 22:47:08,652 [canton-env-ec-32] INFO  c.d.c.s.m.InMemoryCursorPreheadStore:participant=sandbox/domain-alias=local - Rewinding prehead to None
+2025-10-07 22:47:08,797 [canton-env-ec-32] INFO  c.d.c.p.p.AcsCommitmentProcessor:participant=sandbox/domainId=local::1220ea23d5cf - Will use parallelism 2 when computing ACS commitments
+2025-10-07 22:47:08,801 [canton-env-ec-27] INFO  c.d.c.p.p.AcsCommitmentProcessor:participant=sandbox/domainId=local::1220ea23d5cf - Initialized from stored snapshot at RecordTime(timestamp = 0001-01-01T00:00:00Z, tieBreaker = -9223372036854775808) (might be incomplete)
+2025-10-07 22:47:08,802 [canton-env-ec-27] INFO  c.d.c.p.p.AcsCommitmentProcessor:participant=sandbox/domainId=local::1220ea23d5cf - Initialized the ACS commitment processor queue
+2025-10-07 22:47:08,808 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'acs-commitment-processor' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:47:08,809 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'acs-commitment-processor' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:47:08,811 [canton-env-ec-32] INFO  c.d.c.p.s.SyncDomain:participant=sandbox/domainId=local::1220ea23d5cf - 'sync-domain' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:47:08,812 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:47:08,812 [canton-env-ec-32] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:47:08,812 [canton-env-ec-32] INFO  c.d.c.p.s.CantonSyncService:participant=sandbox - Connected to domain and starting synchronisation: Domain 'local'
+2025-10-07 22:47:08,831 [canton-env-ec-48] INFO  c.d.c.p.s.SyncDomain:participant=sandbox/domainId=local::1220ea23d5cf - Found 0 repair requests at request counters Seq()
+2025-10-07 22:47:08,836 [canton-env-ec-32] INFO  c.d.c.s.c.SequencerClientImpl:participant=sandbox/domainId=local::1220ea23d5cf - No event found up to 0001-01-01T00:00:00Z. Resubscribing from the beginning.
+2025-10-07 22:47:08,836 [canton-env-ec-32] INFO  c.d.c.s.c.SequencerClientImpl:participant=sandbox/domainId=local::1220ea23d5cf - Processing events from the SequencedEventStore from 0001-01-01T00:00:00.000001Z on
+2025-10-07 22:47:08,838 [canton-env-ec-79] INFO  c.d.c.s.c.SequencerClientImpl:participant=sandbox/domainId=local::1220ea23d5cf - Starting subscription for alias=SEQ::local::1220ea23d5cf... at timestamp None; next counter 0
+2025-10-07 22:47:08,840 [canton-env-ec-79] INFO  c.d.c.h.DelegatingMutableHealthComponent:participant=sandbox/domainId=local::1220ea23d5cf - 'sequencer-client' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:47:08,840 [canton-env-ec-79] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sequencer-client' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:47:08,841 [canton-env-ec-79] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sequencer-client' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:47:08,870 [canton-env-ec-32] INFO  c.d.c.d.s.a.MemberAuthenticationServiceOld:domain=local - PAR::sandbox::1220c1e8abe4... authenticated new token with expiry 2025-10-07T23:47:08.870008Z
+2025-10-07 22:47:08,877 [canton-env-ec-48] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local - PAR::sandbox::1220c1e8abe4... subscribes from counter=0
+2025-10-07 22:47:08,892 [canton-env-ec-27] INFO  c.d.c.s.c.SequencedEventValidatorImpl:participant=sandbox/domainId=local::1220ea23d5cf tid:46b729ac9c83da5b033aaf1c8496186c - Skipping signature verification of the first sequenced event due to a fresh subscription from SEQ::local::1220ea23d5cf...
+2025-10-07 22:47:08,897 [canton-env-ec-27] INFO  c.d.c.p.s.SyncDomain:participant=sandbox/domainId=local::1220ea23d5cf tid:46b729ac9c83da5b033aaf1c8496186c - Caught up with batch with counter=0 with sequencer with 806 ms delay
+2025-10-07 22:47:08,898 [canton-env-ec-27] INFO  c.d.c.p.s.SyncDomain$EventProcessingMonitor:participant=sandbox/domainId=local::1220ea23d5cf tid:46b729ac9c83da5b033aaf1c8496186c - Replaying requests 0 up to clean prehead -1
+2025-10-07 22:47:08,903 [canton-env-ec-27] INFO  c.d.c.p.s.SyncDomain$EventProcessingMonitor:participant=sandbox/domainId=local::1220ea23d5cf tid:46b729ac9c83da5b033aaf1c8496186c - Replaying or processing locally stored events with sequencer counters 0 to -1
+2025-10-07 22:47:08,921 [canton-env-ec-32] INFO  c.d.c.p.p.DefaultMessageDispatcher:participant=sandbox/domainId=local::1220ea23d5cf tid:46b729ac9c83da5b033aaf1c8496186c - Processing event at sc=0, ts=2025-10-07T22:47:08.091674Z, with contents=DomainTopologyTransactionMessage
+2025-10-07 22:47:08,925 [canton-env-ec-27] INFO  c.d.c.t.p.DomainTopologyTransactionMessageValidator$Impl:participant=sandbox tid:46b729ac9c83da5b033aaf1c8496186c - Using approximate topology snapshot at 0001-01-01T00:00:00.000001Z for desired timestamp 2025-10-07T22:47:08.091674Z
+2025-10-07 22:47:08,966 [canton-env-ec-47] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:46b729ac9c83da5b033aaf1c8496186c - Updated topology change delay from=0s to 0.25s
+2025-10-07 22:47:08,969 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 1/10 Add NamespaceDelegation(1220ea23d5cf..., SigningPublicKey(id = 1220ea23d5cf..., format = Tink, scheme = Ed25519), true) with ts=EffectiveTime(2025-10-07T22:47:08.091674Z) (epsilon=0 ms)
+2025-10-07 22:47:08,970 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 2/10 Add OwnerToKeyMapping(DOM::local::1220ea23d5cf..., SigningPublicKey(id = 1220716822a3..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:47:08.091674Z) (epsilon=0 ms)
+2025-10-07 22:47:08,970 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 3/10 Add OwnerToKeyMapping(MED::local::1220ea23d5cf..., SigningPublicKey(id = 1220911e6ec0..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:47:08.091674Z) (epsilon=0 ms)
+2025-10-07 22:47:08,971 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 4/10 Add OwnerToKeyMapping(SEQ::local::1220ea23d5cf..., SigningPublicKey(id = 12200903682e..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:47:08.091674Z) (epsilon=0 ms)
+2025-10-07 22:47:08,971 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 5/10 Add NamespaceDelegation(1220c1e8abe4..., SigningPublicKey(id = 1220c1e8abe4..., format = Tink, scheme = Ed25519), true) with ts=EffectiveTime(2025-10-07T22:47:08.091674Z) (epsilon=0 ms)
+2025-10-07 22:47:08,973 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 6/10 Add ParticipantState(From, local::1220ea23d5cf..., PAR::sandbox::1220c1e8abe4..., Submission, Ordinary) with ts=EffectiveTime(2025-10-07T22:47:08.091674Z) (epsilon=0 ms)
+2025-10-07 22:47:08,973 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 7/10 Add MediatorDomainState(Both, local::1220ea23d5cf..., MED::local::1220ea23d5cf...) with ts=EffectiveTime(2025-10-07T22:47:08.091674Z) (epsilon=0 ms)
+2025-10-07 22:47:08,974 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 8/10 Add OwnerToKeyMapping(PAR::sandbox::1220c1e8abe4..., SigningPublicKey(id = 1220b7f6ab46..., format = Tink, scheme = Ed25519)) with ts=EffectiveTime(2025-10-07T22:47:08.091674Z) (epsilon=0 ms)
+2025-10-07 22:47:08,975 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 9/10 Add OwnerToKeyMapping(PAR::sandbox::1220c1e8abe4..., EncryptionPublicKey(id = 12208b271e68..., format = Tink, scheme = ECIES-P256_HMAC256_AES128-GCM)) with ts=EffectiveTime(2025-10-07T22:47:08.091674Z) (epsilon=0 ms)
+2025-10-07 22:47:08,978 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 10/10 Replace DomainParametersChange(
+  local::1220ea23d5cf...,
+  DynamicDomainParameters(
+    participant response timeout = 30s,
+    mediator reaction timeout = 30s,
+    transfer exclusivity timeout = 1m,
+    topology change delay = 0.25s,
+    ledger time record time tolerance = 1m,
+    mediator deduplication timeout = 2m,
+    reconciliation interval = 1m,
+    max rate per participant = 1000000,
+    max request size = 10485760,
+    catchup config = CatchUpConfig(catchUpIntervalSkip = 5, nrIntervalsToTriggerCatchUp = 2)
+  )
+) with ts=EffectiveTime(2025-10-07T22:47:08.091674Z) (epsilon=0 ms)
+2025-10-07 22:47:09,006 [canton-env-ec-27] INFO  c.d.c.p.t.c.MissingKeysAlerter:participant=sandbox tid:46b729ac9c83da5b033aaf1c8496186c - Domain local::1220ea23d5cf... update my participant permission as of 2025-10-07T22:47:08.091674Z to Submission, Ordinary
+2025-10-07 22:47:09,037 [input-mapping-pool-2] INFO  c.d.c.p.i.p.ParallelIndexerSubscription:participant=sandbox tid:46b729ac9c83da5b033aaf1c8496186c - Storing at offset=000000000000000003 PartyAddedToParticipant(recordTime = 2025-10-07T22:47:09.015610Z, party = sandbox::1220c1e8abe4..., displayName = '', participantId = sandbox::1220c1e8abe4..., ...)
+2025-10-07 22:47:09,100 [canton-env-ec-47] INFO  c.d.c.p.p.DefaultMessageDispatcher:participant=sandbox/domainId=local::1220ea23d5cf tid:46b729ac9c83da5b033aaf1c8496186c - Processing event at sc=1, ts=2025-10-07T22:47:08.135001Z, with contents=DomainTopologyTransactionMessage
+2025-10-07 22:47:09,113 [canton-env-ec-47] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:46b729ac9c83da5b033aaf1c8496186c - Storing topology transaction 1/1 Add ParticipantState(To, local::1220ea23d5cf..., PAR::sandbox::1220c1e8abe4..., Submission, Ordinary) with ts=EffectiveTime(2025-10-07T22:47:08.385001Z) (epsilon=250 ms)
+2025-10-07 22:47:09,401 [canton-env-ec-79] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:81e85c2382af29fa85df3390b1d5a371 - 'PAR::sandbox::1220c1e8abe4...' sends request with id '50d9f4f5-7854-4666-9c99-2e78d099b075' of size 2081 bytes with 1 envelopes.
+2025-10-07 22:47:09,440 [canton-env-ec-77] INFO  c.d.c.p.p.DefaultMessageDispatcher:participant=sandbox/domainId=local::1220ea23d5cf tid:81e85c2382af29fa85df3390b1d5a371 - Processing event at sc=2, ts=2025-10-07T22:47:09.409956Z, messageId=50d9f4f5-7854-4666-9c99-2e78d099b075, with contents=Seq()
+2025-10-07 22:47:09,450 [canton-env-ec-79] INFO  c.d.c.d.t.DomainTopologyManager:domain=local tid:81e85c2382af29fa85df3390b1d5a371 - Applied topology transaction Add VettedPackages(
+  participant = sandbox::1220c1e8abe4...,
+  packages = Seq(
+    1cc0ce9df772...,
+    65921e553a35...,
+    6851f194e144...,
+    57b5c520512c...,
+    cb0552debf21...,
+    3f4deaf145a1...,
+    86828b984346...,
+    f20de1e4e37b...,
+    76bf0fd12bd9...,
+    38e6274601b2...,
+    d58cf9939847...,
+    40f452260bef...,
+    e491352788e5...,
+    6839a6d3d430...,
+    518032f41fd0...,
+    e8b3e0650dc0...,
+    18597917bc74...,
+    852d8e3a8ccf...,
+    10e0333b52bb...,
+    bfcd37bd6b84...,
+    cc348d369011...,
+    057eed1fd48c...,
+    d14e08374fc7...,
+    c1f1f0055879...,
+    6c2c0667393c...,
+    e22bce619ae2...,
+    e4cc67c3264e...,
+    8a7806365bbd...,
+    97b883cd8a2b...,
+    5921708ce82f...,
+    733e38d36a27...,
+    99a2705ed38c...
+  )
+) at 2025-10-07T22:47:09.447707Z
+2025-10-07 22:47:09,451 [canton-env-ec-79] INFO  c.d.c.d.t.DomainTopologyManagerRequestService:domain=local tid:81e85c2382af29fa85df3390b1d5a371 - Register topology request by PAR::sandbox::1220c1e8abe4... for PAR::sandbox::1220c1e8abe4... yielded
+  Accepted -> Add VettedPackages(
+  participant = sandbox::1220c1e8abe4...,
+  packages = Seq(
+    1cc0ce9df772...,
+    65921e553a35...,
+    6851f194e144...,
+    57b5c520512c...,
+    cb0552debf21...,
+    3f4deaf145a1...,
+    86828b984346...,
+    f20de1e4e37b...,
+    76bf0fd12bd9...,
+    38e6274601b2...,
+    d58cf9939847...,
+    40f452260bef...,
+    e491352788e5...,
+    6839a6d3d430...,
+    518032f41fd0...,
+    e8b3e0650dc0...,
+    18597917bc74...,
+    852d8e3a8ccf...,
+    10e0333b52bb...,
+    bfcd37bd6b84...,
+    cc348d369011...,
+    057eed1fd48c...,
+    d14e08374fc7...,
+    c1f1f0055879...,
+    6c2c0667393c...,
+    e22bce619ae2...,
+    e4cc67c3264e...,
+    8a7806365bbd...,
+    97b883cd8a2b...,
+    5921708ce82f...,
+    733e38d36a27...,
+    99a2705ed38c...
+  )
+)
+2025-10-07 22:47:09,464 [canton-env-ec-27] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:81e85c2382af29fa85df3390b1d5a371 - 'DOM::local::1220ea23d5cf...' sends request with id 'f9d9b7f7-7c4a-49e6-80d9-5b54163b11e1' of size 520 bytes with 1 envelopes.
+2025-10-07 22:47:09,465 [canton-env-ec-79] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:81e85c2382af29fa85df3390b1d5a371 - 'DOM::local::1220ea23d5cf...' sends request with id '3537a222-c27c-48af-8d5c-fd340b6009b6' of size 2221 bytes with 1 envelopes.
+2025-10-07 22:47:09,503 [canton-env-ec-79] INFO  c.d.c.p.p.DefaultMessageDispatcher:participant=sandbox/domainId=local::1220ea23d5cf tid:81e85c2382af29fa85df3390b1d5a371 - Processing event at sc=3, ts=2025-10-07T22:47:09.468192Z, with contents=RegisterTopologyTransactionResponse
+2025-10-07 22:47:09,508 [canton-env-ec-31] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/node=mediator/client=mediator tid:81e85c2382af29fa85df3390b1d5a371 - Storing topology transaction 1/1 Add VettedPackages(
+  participant = sandbox::1220c1e8abe4...,
+  packages = Seq(
+    1cc0ce9df772...,
+    65921e553a35...,
+    6851f194e144...,
+    57b5c520512c...,
+    cb0552debf21...,
+    3f4deaf145a1...,
+    86828b984346...,
+    f20de1e4e37b...,
+    76bf0fd12bd9...,
+    38e6274601b2...,
+    d58cf9939847...,
+    40f452260bef...,
+    e491352788e5...,
+    6839a6d3d430...,
+    518032f41fd0...,
+    e8b3e0650dc0...,
+    18597917bc74...,
+    852d8e3a8ccf...,
+    10e0333b52bb...,
+    bfcd37bd6b84...,
+    cc348d369011...,
+    057eed1fd48c...,
+    d14e08374fc7...,
+    c1f1f0055879...,
+    6c2c0667393c...,
+    e22bce619ae2...,
+    e4cc67c3264e...,
+    8a7806365bbd...,
+    97b883cd8a2b...,
+    5921708ce82f...,
+    733e38d36a27...,
+    99a2705ed38c...
+  )
+) with ts=EffectiveTime(2025-10-07T22:47:09.722849Z) (epsilon=250 ms)
+2025-10-07 22:47:09,515 [canton-env-ec-79] INFO  c.d.c.p.s.SyncDomainEphemeralState:participant=sandbox/domain-alias=local - 'sync-domain-ephemeral' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:47:09,515 [canton-env-ec-33] INFO  c.d.c.p.p.DefaultMessageDispatcher:participant=sandbox/domainId=local::1220ea23d5cf tid:81e85c2382af29fa85df3390b1d5a371 - Processing event at sc=4, ts=2025-10-07T22:47:09.472849Z, with contents=DomainTopologyTransactionMessage
+2025-10-07 22:47:09,521 [canton-env-ec-27] INFO  c.d.c.t.p.TopologyTransactionProcessor:domain=local/client=topology-manager tid:81e85c2382af29fa85df3390b1d5a371 - Storing topology transaction 1/1 Add VettedPackages(
+  participant = sandbox::1220c1e8abe4...,
+  packages = Seq(
+    1cc0ce9df772...,
+    65921e553a35...,
+    6851f194e144...,
+    57b5c520512c...,
+    cb0552debf21...,
+    3f4deaf145a1...,
+    86828b984346...,
+    f20de1e4e37b...,
+    76bf0fd12bd9...,
+    38e6274601b2...,
+    d58cf9939847...,
+    40f452260bef...,
+    e491352788e5...,
+    6839a6d3d430...,
+    518032f41fd0...,
+    e8b3e0650dc0...,
+    18597917bc74...,
+    852d8e3a8ccf...,
+    10e0333b52bb...,
+    bfcd37bd6b84...,
+    cc348d369011...,
+    057eed1fd48c...,
+    d14e08374fc7...,
+    c1f1f0055879...,
+    6c2c0667393c...,
+    e22bce619ae2...,
+    e4cc67c3264e...,
+    8a7806365bbd...,
+    97b883cd8a2b...,
+    5921708ce82f...,
+    733e38d36a27...,
+    99a2705ed38c...
+  )
+) with ts=EffectiveTime(2025-10-07T22:47:09.722849Z) (epsilon=250 ms)
+2025-10-07 22:47:09,521 [canton-env-ec-79] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain-ephemeral' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:47:09,521 [canton-env-ec-79] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain-ephemeral' is now in state Ok(). Previous state was Not Initialized.
+2025-10-07 22:47:09,524 [canton-env-ec-77] INFO  c.d.c.t.p.TopologyTransactionProcessor:participant=sandbox tid:81e85c2382af29fa85df3390b1d5a371 - Storing topology transaction 1/1 Add VettedPackages(
+  participant = sandbox::1220c1e8abe4...,
+  packages = Seq(
+    1cc0ce9df772...,
+    65921e553a35...,
+    6851f194e144...,
+    57b5c520512c...,
+    cb0552debf21...,
+    3f4deaf145a1...,
+    86828b984346...,
+    f20de1e4e37b...,
+    76bf0fd12bd9...,
+    38e6274601b2...,
+    d58cf9939847...,
+    40f452260bef...,
+    e491352788e5...,
+    6839a6d3d430...,
+    518032f41fd0...,
+    e8b3e0650dc0...,
+    18597917bc74...,
+    852d8e3a8ccf...,
+    10e0333b52bb...,
+    bfcd37bd6b84...,
+    cc348d369011...,
+    057eed1fd48c...,
+    d14e08374fc7...,
+    c1f1f0055879...,
+    6c2c0667393c...,
+    e22bce619ae2...,
+    e4cc67c3264e...,
+    8a7806365bbd...,
+    97b883cd8a2b...,
+    5921708ce82f...,
+    733e38d36a27...,
+    99a2705ed38c...
+  )
+) with ts=EffectiveTime(2025-10-07T22:47:09.722849Z) (epsilon=250 ms)
+2025-10-07 22:47:09,554 [canton-env-ec-32] INFO  c.d.c.p.a.s.ApiActiveContractsService:participant=sandbox tid:19d72dff97d62640ab063f334fd2bd43 - Received request for active contracts: GetActiveContractsRequest(sandbox,Some(TransactionFilter(Map(sandbox::1220c1e8abe4783b49cb545dd732ba9dbfe2bba3a8c254fb0785a36f4d1ea8263887 -> Filters(Some(InclusiveFilters(Vector(Identifier(65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e,PingPong,PingProposal), Identifier(65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e,PingPong,Ping), Identifier(65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e,PingPong,Pong), Identifier(65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e,PingPong,Explode), Identifier(65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e,PingPong,Merge), Identifier(65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e,PingPong,Collapse)),Vector(),Vector())))))),false,), filters -> {sandbox::1220c1e8abe4783b49cb545dd732ba9dbfe2bba3a8c254fb0785a36f4d1ea8263887: ['65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e:PingPong:Pong', '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e:PingPong:Collapse', '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e:PingPong:PingProposal', '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e:PingPong:Explode', '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e:PingPong:Merge', '65921e553a353588e950cbc87e98a127730e63295f7ad8d3adae952ef0133b3e:PingPong:Ping']}.
+2025-10-07 22:47:09,595 [main] INFO  c.d.c.e.CommunityEnvironment tid:5df2a199d3266c5bf55d7da1e86ce13e - Successfully started all nodes
+2025-10-07 22:47:09,597 [main] INFO  c.digitalasset.canton.ServerRunner - Canton started
+2025-10-07 22:47:09,638 [Thread-0] INFO  c.d.canton.CantonCommunityApp$ - Shutting down...
+2025-10-07 22:47:09,640 [Thread-0] INFO  c.d.c.e.CommunityEnvironment - Closing environment...
+2025-10-07 22:47:09,644 [canton-env-ec-77] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:47:09,645 [canton-env-ec-77] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain-ephemeral' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:47:09,646 [canton-env-ec-77] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sequencer-client' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:47:09,646 [canton-env-ec-77] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'acs-commitment-processor' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:47:09,654 [canton-env-ec-77] INFO  c.d.c.p.ParticipantNode:participant=sandbox - Stopping participant node
+2025-10-07 22:47:09,658 [canton-env-ec-79] INFO  c.d.c.n.g.ApiRequestLogger:participant=sandbox tid:dd7579cb0ade186191e66cf71478bccc - Request c.d.l.a.v.TransactionService/GetTransactions by /127.0.0.1:45226: cancelled. Cancellations can be caused by timeouts, explicit cancellation by the client, network errors, etc.
+2025-10-07 22:47:09,669 [canton-env-ec-79] INFO  c.d.c.p.a.s.c.CommandServiceImpl:participant=sandbox - Shutting down Command Service.
+2025-10-07 22:47:09,680 [canton-env-ec-32] INFO  com.zaxxer.hikari.HikariDataSource - daml.index.db.connection.api-server - Shutdown initiated...
+2025-10-07 22:47:09,683 [canton-env-ec-32] INFO  com.zaxxer.hikari.HikariDataSource - daml.index.db.connection.api-server - Shutdown completed.
+2025-10-07 22:47:09,683 [canton-env-ec-32] INFO  c.d.c.p.i.RecoveringIndexer:participant=sandbox - Stopping Indexer Server
+2025-10-07 22:47:09,687 [canton-env-ec-33] INFO  com.zaxxer.hikari.HikariDataSource - daml.index.db.connection.indexer - Shutdown initiated...
+2025-10-07 22:47:09,688 [canton-env-ec-33] INFO  com.zaxxer.hikari.HikariDataSource - daml.index.db.connection.indexer - Shutdown completed.
+2025-10-07 22:47:09,688 [canton-env-ec-33] INFO  c.d.c.p.i.RecoveringIndexer:participant=sandbox - Successfully finished processing state updates
+2025-10-07 22:47:09,688 [canton-env-ec-33] INFO  c.d.c.p.i.p.ParallelIndexerFactory$:participant=sandbox - Indexing finished.
+2025-10-07 22:47:09,688 [canton-env-ec-33] INFO  c.d.c.p.i.RecoveringIndexer:participant=sandbox - Stopped Indexer Server
+2025-10-07 22:47:09,690 [canton-env-ec-32] INFO  c.d.c.p.DispatcherState:participant=sandbox - Shutting down Ledger API offset dispatcher state.
+2025-10-07 22:47:09,693 [canton-env-ec-32] INFO  c.d.c.p.DispatcherState:participant=sandbox - Ledger API offset dispatcher shutdown.
+2025-10-07 22:47:10,025 [canton-env-ec-33] INFO  c.d.c.d.s.s.GrpcSequencerService:domain=local tid:369299e8b08b08427c27338fa9f15e78 - 'PAR::sandbox::1220c1e8abe4...' sends request with id 'tick-c5738570-db69-4892-a5c4-fe3bbcbfd50a' of size 338 bytes with 0 envelopes.
+2025-10-07 22:47:10,056 [canton-env-ec-77] INFO  c.d.c.p.s.SyncDomain:participant=sandbox/domainId=local::1220ea23d5cf - 'sync-domain' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:47:10,056 [canton-env-ec-77] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:47:10,077 [canton-env-ec-77] INFO  c.d.c.s.c.ResilientSequencerSubscription:participant=sandbox/domainId=local::1220ea23d5cf - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:47:10,077 [canton-env-ec-77] INFO  c.d.c.h.DelegatingMutableHealthComponent:participant=sandbox/domainId=local::1220ea23d5cf - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:47:10,078 [canton-env-ec-77] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:47:10,082 [canton-env-ec-27] INFO  c.d.c.s.c.t.GrpcSequencerSubscription:participant=sandbox/domainId=local::1220ea23d5cf - GRPC subscription successfully closed due to client shutdown.
+2025-10-07 22:47:10,082 [canton-env-ec-33] INFO  c.d.c.n.g.ApiRequestLogger:domain=local tid:5f5eb05fb4f89eeafaef4117d26d1cfa - Request c.d.c.d.a.v.SequencerService/SubscribeVersioned by /127.0.0.1:51072: cancelled. Cancellations can be caused by timeouts, explicit cancellation by the client, network errors, etc.
+2025-10-07 22:47:10,087 [canton-env-ec-77] INFO  c.d.c.p.p.AcsCommitmentProcessor:participant=sandbox/domainId=local::1220ea23d5cf - 'acs-commitment-processor' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:47:10,089 [canton-env-ec-77] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'acs-commitment-processor' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:47:10,088 [canton-env-ec-47] INFO  c.d.c.p.s.CantonSyncService:participant=sandbox - Domain 'local' disconnected because sequencer client was closed
+2025-10-07 22:47:10,091 [canton-env-ec-32] INFO  c.d.c.p.p.AcsCommitmentProcessor:participant=sandbox/domainId=local::1220ea23d5cf tid:24968858c8c0cd95e87b8f842ecc6aec - Giving up on producing ACS commitment due to shutdown
+2025-10-07 22:47:10,094 [canton-env-ec-77] INFO  c.d.c.p.s.SyncDomainEphemeralState:participant=sandbox/domain-alias=local - 'sync-domain-ephemeral' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:47:10,094 [canton-env-ec-77] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain-ephemeral' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:47:10,099 [canton-env-ec-77] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain' is now in state Failed(Component is closed). Previous state was Failed(Disconnected from domain).
+2025-10-07 22:47:10,100 [canton-env-ec-77] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sync-domain-ephemeral' is now in state Failed(Component is closed). Previous state was Failed(Disconnected from domain).
+2025-10-07 22:47:10,100 [canton-env-ec-77] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'sequencer-client' is now in state Failed(Component is closed). Previous state was Failed(Disconnected from domain).
+2025-10-07 22:47:10,101 [canton-env-ec-77] INFO  c.d.c.h.MutableHealthComponent:participant=sandbox - 'acs-commitment-processor' is now in state Failed(Component is closed). Previous state was Failed(Disconnected from domain).
+2025-10-07 22:47:10,101 [canton-env-ec-77] INFO  c.d.c.r.MemoryStorage:participant=sandbox - 'memory_storage' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:47:10,101 [canton-env-ec-77] INFO  c.d.c.p.ParticipantNodeBootstrap:participant=sandbox - 'participant' is now in state ServingStatus(status = 'NOT_SERVING'). Previous state was ServingStatus(status = 'SERVING').
+2025-10-07 22:47:10,102 [canton-env-ec-77] INFO  c.d.c.c.Crypto:participant=sandbox - 'crypto' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:47:10,103 [canton-env-ec-77] INFO  c.d.c.c.p.t.TinkPrivateCrypto:participant=sandbox - 'tink-private-crypto' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:47:10,106 [canton-env-ec-77] INFO  c.d.c.d.DomainNodeBootstrap:domain=local - Stopping domain node
+2025-10-07 22:47:10,109 [canton-env-ec-77] INFO  c.d.c.d.t.DomainTopologySender$Impl:domain=local/identity - 'domain-topology-sender' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:47:10,109 [canton-env-ec-77] INFO  c.d.c.h.MutableHealthComponent:domain=local - 'domain-topology-sender' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:47:10,110 [canton-env-ec-77] INFO  c.d.c.s.c.ResilientSequencerSubscription:domain=local/client=topology-manager - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:47:10,111 [canton-env-ec-77] INFO  c.d.c.h.DelegatingMutableHealthComponent:domain=local/client=topology-manager - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:47:10,112 [canton-env-ec-79] INFO  c.d.c.s.c.t.GrpcSequencerSubscription:domain=local/client=topology-manager - GRPC subscription successfully closed due to client shutdown.
+2025-10-07 22:47:10,112 [canton-env-ec-79] INFO  c.d.c.n.g.ApiRequestLogger:domain=local tid:e9f8095b68a187bc6398c0ceed513b09 - Request c.d.c.d.a.v.SequencerService/SubscribeVersioned by /127.0.0.1:41212: cancelled. Cancellations can be caused by timeouts, explicit cancellation by the client, network errors, etc.
+2025-10-07 22:47:10,121 [canton-env-ec-77] INFO  c.d.c.s.c.ResilientSequencerSubscription:domain=local/client=mediator - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:47:10,121 [canton-env-ec-77] INFO  c.d.c.h.DelegatingMutableHealthComponent:domain=local/client=mediator - 'sequencer-client' is now in state Failed(Disconnected from domain). Previous state was Ok().
+2025-10-07 22:47:10,122 [canton-env-ec-47] INFO  c.d.c.n.g.ApiRequestLogger:domain=local tid:5af5a41aef1cc377cd9d7590877f149f - Request c.d.c.d.a.v.SequencerService/SubscribeVersioned by /127.0.0.1:41226: cancelled. Cancellations can be caused by timeouts, explicit cancellation by the client, network errors, etc.
+2025-10-07 22:47:10,122 [canton-env-ec-33] INFO  c.d.c.s.c.t.GrpcSequencerSubscription:domain=local/client=mediator - GRPC subscription successfully closed due to client shutdown.
+2025-10-07 22:47:10,130 [canton-env-ec-77] INFO  c.d.c.d.s.s.DatabaseSequencer:domain=local - 'sequencer' is now in state SequencerHealthStatus(active = false, details = Sequencer is closed). Previous state was SequencerHealthStatus(active = true).
+2025-10-07 22:47:10,130 [canton-env-ec-77] INFO  c.d.c.h.MutableHealthQuasiComponent:domain=local - 'sequencer' is now in state SequencerHealthStatus(active = false, details = Sequencer is closed). Previous state was SequencerHealthStatus(active = true).
+2025-10-07 22:47:10,130 [canton-env-ec-77] INFO  c.d.c.d.DomainNodeBootstrap:domain=local - 'sequencer-health-check-service' is now in state ServingStatus(status = 'NOT_SERVING'). Previous state was ServingStatus(status = 'SERVING').
+2025-10-07 22:47:10,142 [canton-env-ec-77] INFO  c.d.c.r.MemoryStorage:domain=local - 'memory_storage' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:47:10,142 [canton-env-ec-77] INFO  c.d.c.d.DomainNodeBootstrap:domain=local - 'domain' is now in state ServingStatus(status = 'NOT_SERVING'). Previous state was ServingStatus(status = 'SERVING').
+2025-10-07 22:47:10,143 [canton-env-ec-77] INFO  c.d.c.crypto.Crypto:domain=local - 'crypto' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:47:10,143 [canton-env-ec-77] INFO  c.d.c.c.p.t.TinkPrivateCrypto:domain=local - 'tink-private-crypto' is now in state Failed(Component is closed). Previous state was Ok().
+2025-10-07 22:47:10,162 [canton-env-ec-77] INFO  o.a.pekko.actor.CoordinatedShutdown - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
+2025-10-07 22:47:10,190 [Thread-0] INFO  c.d.canton.CantonCommunityApp$ - Shutdown complete.
+2025-10-07 22:47:10,190 [Thread-0] INFO  c.d.canton.CantonCommunityApp$ - Shutting down logger. Bye bye.
